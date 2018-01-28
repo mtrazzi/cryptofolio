@@ -18,8 +18,6 @@ library(ECharts2Shiny)
 market_today <- get_marketcap_ticker_all()
 df1 <- na.omit(market_today[,c('id','market_cap_usd')])
 df1$market_cap_usd <- as.numeric(df1$market_cap_usd)
-#Add the market price
-#df1$formatted_market_cap <-  paste0(df1$id,'\n','$',format(df1$market_cap_usd,big.mark = ',',scientific = F, trim = T))
 
 ##Format the data to plot in a web application
 colnames(df1) <- c("name", "value")
@@ -43,23 +41,6 @@ dat = toJSON(L, auto_unbox=TRUE)
 dat = gsub("\"name\"","name",dat)
 dat = gsub("\"value\"","value",dat)
 dat = gsub("\"","\'",dat)
-
-# df1$formatted_market_cap <-  paste0(df1$id,'\n','$',format(df1$market_cap_usd,big.mark = ',',scientific = F, trim = T))
-# crypto_map <- treemap(df1, index = 'formatted_market_cap', vSize = 'market_cap_usd', title = 'Cryptocurrency Market Cap', fontsize.labels=c(12, 8), palette='RdYlGn')
-# crypto_map
-
-# typeof(crypto_map)
-# ui <- fluidPage(
-#   d3tree2Output("au_crypto_map")
-# )
-# 
-# typeof(crypto_map)
-# server <- function(input,output){
-#   output$au_crypto_map <- renderD3tree2({crypto_map})
-# }
-# 
-# # Run the application
-# shinyApp(ui = ui, server = server)
 
 # Server function -------------------------------------------
 server <- function(input, output) {
