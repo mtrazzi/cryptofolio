@@ -1,0 +1,12 @@
+name: market_cap
+title: market_cap
+username:
+account: cryptofolio
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 263864
+bundleId: 1196415
+url: https://cryptofolio.shinyapps.io/market_cap/
+when: 1517143369.76073
+asMultiple: FALSE
+asStatic: FALSE
