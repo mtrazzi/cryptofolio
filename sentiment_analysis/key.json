@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "citric-chemist-187800",
+  "private_key_id": "8a703fd4c9f953d80a48ae5efeb6a6560a7d8da8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCNlL0L7cdONR7F\n/0CLDSgaV+KaopVLoVK+Ko3mUiudl4sRQQEM1V8gkmNC+uiRSZwIiQiGiYy8qUd3\n/ydnRTIMjxfYfP7vpVJmg3g1LwGCt4mWOVTLmRKcLVHiNndBPWdY2SM9uRH20GX/\nnVRBjZnkJDUZyQMOVNaMvbV0uKxJaevZAbDpWqHUtAIjjb7xZQqyjZPzFpOJcC7Y\n0Y8bSh4QYlBWPz7HkvAH6xiaMpbYHDXyHcUsuQ5wwcVP2ifoNubH1Ny7sLlsaOvF\nbCx6Q6OoKksgFijINb2uDmXM02aOX8OqFaLjAp/GN/VTWl8ryuKLISfAY3kgCiLX\nrEB9Eq/1AgMBAAECggEACLIuD7bXGwf1j+u8Uc4eZx/RcfYH0tFh0lRYIDbD1GDO\nezd8PQbjWjjOPVBJS0MzgO1fHK8Dee2xJL8DSJCIy8SuOO8p1BuvZ/nYlEutfWiQ\nhthBS7q8gziKuFOSwkBnQfR0TwI4XD8zRJ6r4irfB5LsarJcrFtW95C0vdU/SnL4\n/7UWc+1zDiJvylFMT264hMWDv1Jnz+p3H6UtUiUYmclB079318sQgOMp9gZWS4qe\n0w7tcHX+peYZd4ciZOc52SXHwdBV8graRuJOXff32xFiXiEzstaxaihISA5tDPXx\n1KqIr/2yjj1kQHrQFEb6RPp59xfS84aMdFqeVHnesQKBgQC/GF++IHQNrIacoI2x\nG43whC2x+vAnR520jUkKLhV8sZCpHauXxxkwqdfAfBdslzjwDsq+/cW+mR9jIaSZ\n/hkXlHjTORd6iEr9kXndl82YAEz1QsbG+RQ9gmdpUotmVrKMgKbSQ8981WRwYN2j\ntwEy0JvhKnIG1Q5FC8neUZBcNwKBgQC9qyGZWEwlA/WQHcTeY0HdKPzkdcQdP7oe\nEnI9vaaXb32PVE69LkARMu92vP7Sn80pCQgzwgXwXlP8vtVboL/ZhaKzIOhKhspN\nEHbvTT2f8OFQd+vMvBG2YtTgIlhLz1s1o5nj4TBuPmsPuXqTqOmpipAyY6FEzHUK\no37U30O3MwKBgGK/a6pKBu6R+rWxWcbtoDlrdFQ6AgTgE/pD07HL9TH3UiPBlR1/23OqfYLXcCw\nMb9fRaTtXM+zeWyVhp8dH3k4pEBWLfJNvTbPCd4fGvFg45DWeKiDqX+dAoGBAI6X\n9SerWXvOsTSLHPIw31idMxuzaiCvQ4bOSXMffPqHCHfUY2oZNnN3vs6fIllJaN27\n+52l9f8Te8Md2ZwMi4/Gx14ylFFLaxZrFW+tu3HekBaGQhHnJs3fGbn0ODuuhh0a\nhVzsdRO8+5KT2JLgv+MF2Ij5nEn0CN5ZssXpoKg/AoGABbPKe3fo/CyEmpuS+WfV\nxzkDe/sB5y5lfLM0HWbcPRCRawN3T95gq2lM2JCwaXi6LBCeHn/J9sfyINWxIp8G\nmHZc1e6JImsmdxa9ikftPR/t1bBqgPXpTjQBAhrs76CPvxkMjG8RrN3nZMSWpDdg\nxh+HkyTmR2KraLH4NXOKfzY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "starting-account-2emaunhrgciy@citric-chemist-187800.iam.gserviceaccount.com",
+  "client_id": "108032613463194564894",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/starting-account-2emaunhrgciy%40citric-chemist-187800.iam.gserviceaccount.com"
+}
