@@ -1,6 +1,6 @@
-# cryptofolio
+# Cryptofolio
 
-Master's Project : create a optimized portofolio for cryptocurrencies using Markowitz's Modern Portfolio Theroy
+Master's Project : create a optimized portfolio for cryptocurrencies using Markowitz's Modern Portfolio Theory
 More information here (french) : http://androide.lip6.fr/?q=node/384
 
 Relevant links : 
