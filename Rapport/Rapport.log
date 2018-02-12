@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=latex 2016.12.5)  12 FEB 2018 16:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=latex 2017.1.7)  12 FEB 2018 20:44
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
 LaTeX2e <2016/03/31> patch level 3
-Babel <3.9r> and hyphenation patterns for 76 language(s) loaded.
+Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
@@ -318,7 +318,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgfplots\pgfplots.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplots.revision.tex")
-Package: pgfplots 2016/08/10 v1.14 Data Visualization (1.14)
+Package: pgfplots 2017/06/05 v1.15 Data Visualization (1.15)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty"
@@ -654,7 +654,7 @@ File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 )))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgfplots\pgfplotstable.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplots.revision.tex")
-Package: pgfplotstable 2016/08/10 v1.14 Table typesetting and Pretty-printing (1.14)
+Package: pgfplotstable 2017/06/05 v1.15 Table typesetting and Pretty-printing (1.15)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\numtable\pgfplotstable.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\numtable\pgfplotstable.coltype.code.tex")))
@@ -677,17 +677,11 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@thisruleclass=\count149
 \@lastruleclass=\count150
 \@thisrulewidth=\dimen257
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\titling\titling.sty"
-Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip49
-\thanksmargin=\skip50
-\droptitle=\skip51
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks42
 \inpenc@posthook=\toks43
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\latin1.def"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\latin1.def"
 File: latin1.def 2015/03/17 v1.2c Input encoding file
 )) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2016/06/19 v1.99m Standard LaTeX package
@@ -715,13 +709,13 @@ File: babel.def 2016/04/23 3.9r Babel common definitions
 \l@acadian = a dialect from \language\l@french 
 \l@canadien = a dialect from \language\l@french 
 \FB@nonchar=\count152
-\FBcolonskip=\skip52
-\FBthinskip=\skip53
+\FBcolonskip=\skip49
+\FBthinskip=\skip50
 Package babel Info: Making : an active character on input line 365.
 Package babel Info: Making ; an active character on input line 366.
 Package babel Info: Making ! an active character on input line 367.
 Package babel Info: Making ? an active character on input line 368.
-\FBguillskip=\skip54
+\FBguillskip=\skip51
 \FBguill@level=\count153
 \FB@everypar=\toks44
 \FB@Mht=\dimen259
@@ -732,11 +726,11 @@ Package babel Info: Making ? an active character on input line 368.
 Package frenchb.ldf Warning: Please load the "listings" package
 (frenchb.ldf)                AFTER babel/frenchb; reported on input line 967.
 
-\listindentFB=\skip55
-\labelwidthFB=\skip56
-\leftmarginFB=\skip57
+\listindentFB=\skip52
+\labelwidthFB=\skip53
+\leftmarginFB=\skip54
 \parindentFFN=\dimen260
-\FBfnindent=\skip58
+\FBfnindent=\skip55
 )) ("C:\Program Files\MiKTeX 2.9\tex\latex\carlisle\scalefnt.sty")
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
@@ -815,7 +809,7 @@ LaTeX Info: Redefining \nameref on input line 15.
 ABD: EveryShipout initializing macros
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider w
-riting \pgfplotsset{compat=1.14} into your preamble.
+riting \pgfplotsset{compat=1.15} into your preamble.
  on input line 15.
 
 LaTeX Info: Redefining \degres on input line 15.
@@ -857,39 +851,39 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 16.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 17.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 16.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 17.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 16.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 17.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 16.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 17.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 16.
+(Font)              <12> on input line 17.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 16.
+(Font)              <8> on input line 17.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 16.
-LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+(Font)              <6> on input line 17.
+LaTeX Font Info:    Try loading font information for U+msa on input line 17.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 16.
+LaTeX Font Info:    Try loading font information for U+msb on input line 17.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 16.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 17.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -943,21 +937,24 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 43.
  (Rapport.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 43.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 43.
-Package rerunfilecheck Info: File `Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 12684022E965AB799E626C1E87B4FBC6;158.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Package rerunfilecheck Warning: File `Rapport.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
+Package rerunfilecheck Info: Checksums for `Rapport.out':
+(rerunfilecheck)             Before: C524EB23A51F66FA29CE162B1454ABF2;164
+(rerunfilecheck)             After:  5D30CA80366DCF68BE721092B4130275;176.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
  ) 
 Here is how much of TeX's memory you used:
- 30003 strings out of 493330
- 701082 string characters out of 3139086
- 885381 words of memory out of 3000000
- 33029 multiletter control sequences out of 15000+200000
+ 30025 strings out of 493334
+ 703233 string characters out of 3139218
+ 888979 words of memory out of 3000000
+ 33054 multiletter control sequences out of 15000+200000
  51945 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,6n,96p,1042b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Rapport.dvi (2 pages, 13900 bytes).
+Output written on Rapport.dvi (2 pages, 16960 bytes).

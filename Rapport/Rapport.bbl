@@ -1,7 +1,43 @@
 \begin{thebibliography}{1}
 
-\bibitem{DBLP}
+\bibitem{CPMDRL}
 Z.~Jiang and J.~Liang, ``Cryptocurrency portfolio management with deep
-  reinforcement learning,'' {\em CoRR}, vol.~abs/1612.01277, 2016.
+  reinforcement learning,'' in {\em Intelligent Systems Conference}, May 2017.
+
+\bibitem{Heaton2017}
+J.~Heaton, N.~Polson, and J.~Witte, ``Deep learning for finance: Deep
+  portfolios,'' {\em Applied Stochastic Models in Business and Industry},
+  vol.~33, pp.~3 -- 12, October 2017.
+
+\bibitem{Cumming2015}
+J.~Cumming, ``An investigation into the use of reinforcement learning
+  techniques within the algorithmic trading domain,'' June 2015.
+
+\bibitem{Moody2001}
+J.~Moody and M.~Saffell, ``Learning to trade via direct reinforcement,'' {\em
+  IEEE Transactions on Neural Networks}, vol.~12, pp.~875 -- 889, July 2001.
+
+\bibitem{Ban2016}
+G.-Y. Ban, N.~{El Karoui}, and A.~E. Lim, ``Machine learning and portfolio
+  optimization,'' {\em Management Science}, November 2016.
+
+\bibitem{Das2011}
+P.~Das and A.~Banerjee, ``Meta optimization and its application to portfolio
+  selection,'' in {\em Proceedings of the ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, pp.~1163 -- 1171, 2011.
+
+\bibitem{Li2014}
+B.~Li and S.~C. Hoi, ``Online portfolio selection: A survey,'' {\em ACM
+  Computing Surveys (CSUR)}, vol.~46, January 2014.
+
+\bibitem{Li2012}
+B.~Li, P.~Zhao, and S.~C.~H. Hoi, ``Pamr: Passive aggressive mean reversion
+  strategy for portfolio selection,'' {\em Machine Learning}, vol.~87, pp.~221
+  -- 258, May 2012.
+
+\bibitem{Chang2009}
+T.-J. Chang, S.-C. Yang, and K.-J. Changi, ``Portfolio optimization problems in
+  different risk measures using genetic algorithm,'' {\em Expert Systems with
+  Applications}, vol.~36, no.~7, pp.~10529 -- 10537, 2009.
 
 \end{thebibliography}
