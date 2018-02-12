@@ -1,7 +1,5 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Rapport.aux
-The style file: ieeetr.bst
-Database file #1: biblio.bib
-Warning--entry type for "Cumming2015" isn't style-file defined
---line 28 of file biblio.bib
-Warning--empty publisher in Das2011
-(There were 2 warnings)
+I found no \citation commands---while reading file Rapport.aux
+I found no \bibdata command---while reading file Rapport.aux
+I found no \bibstyle command---while reading file Rapport.aux
+(There were 3 error messages)

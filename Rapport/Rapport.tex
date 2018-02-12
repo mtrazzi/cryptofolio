@@ -10,7 +10,7 @@
 \usepackage{pgfplots} %problemes a la compilation sinon
 \pgfplotsset{compat=1.15}
 \usepackage{parskip} %pour ne pas mettre deux fois // entre chaque paragraphe
-\usepackage{biblatex} %pour la gestion des citations
+\usepackage[backend=biber]{biblatex} %pour la gestion des citations
 \addbibresource{biblio.bib}
 \bibliography{biblio}
 
@@ -19,8 +19,6 @@
 \date{Mai 2018}
 
 \begin{document}
-
-
 
 \maketitle
 
@@ -35,9 +33,7 @@ Dans cette article, les auteurs proposent un panorama des techniques d'optimisat
 
 Les auteurs découpent ces techniques en 5 catégories : Benchmarks, Follow-the-Winner, Follow-the-Loser, Pattern-Matching Approaches, et Meta-Learning Algorithms.
 
-Les Benchmarks sont des algorithmes quasi-triviaux qui servent de repères : Buy and Hold (aucune modification du portfolio à chaque période), Best Stock (idem mais portfolio composé d'un unique stock, le meilleur), Constant Rebalanced Portfolios (le portfolio de la période suivante est tou
-{
-	urs portfolio fixé).
+Les Benchmarks sont des algorithmes quasi-triviaux qui servent de repères : Buy and Hold (aucune modification du portfolio à chaque période), Best Stock (idem mais portfolio composé d'un unique stock, le meilleur), Constant Rebalanced Portfolios (le portfolio de la période suivante est toujours un portfolio fixé).
 
 	Les algorithmes Follow-the-Winner sont basés sur le principe de l'augmentation du poids des stocks avec la meilleur croissance à la période $t$ pour former le portfolio du temps $t+1$. Parmi eux, on pourra citer les Universal Portfolios (construit des portfolio composés d'un unique stock puis mixe les plus performants), Exponential Gradient (cherche à suivre le meilleur portfolio au temps $t$ mais en restant proche du portfolio adopté précédemment), le très similaire Follow the Leader (qui ne tient pas compte de la proximité), ou Follow the Regularized Leader (idem mais avec un terme de régularisation, qui typiquement minimise la taille du vecteur de portfolio).
 
