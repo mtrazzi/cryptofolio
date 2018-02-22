@@ -1,26 +1,35 @@
 \documentclass[a4paper]{article}
 
 \usepackage[french]{babel}
-\usepackage{lmodern, amsmath, amssymb, mathrsfs, graphicx, listings, tabularx, color, hyperref, pgfplots, pgfplotstable, booktabs, titling}
+\usepackage{lmodern, amsmath, amssymb, mathrsfs, graphicx, listings, tabularx, color, hyperref, pgfplots, pgfplotstable, booktabs, titling, authblk, parskip, pgfplots}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[labelfont=sc]{caption}
 \usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+\usepackage[backend=biber, url=false, isbn=false, sorting=nty]{biblatex}
 \hypersetup{colorlinks, linkcolor=black, urlcolor=black}
-\usepackage{pgfplots} %problemes a la compilation sinon
 \pgfplotsset{compat=1.15}
-\usepackage{parskip} %pour ne pas mettre deux fois // entre chaque paragraphe
-\usepackage[backend=biber, url=false, isbn=false, style=ieee]{biblatex}
 \addbibresource{biblio.bib}
 \bibliography{biblio}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
-\title{Projet Cryptofolio :\\Plate-forme d'optimisation de portfolio de cryptomonnaies}
-\author{Julien Denes, Michaël Trazzi}
-\date{Mai 2018}
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+\begin{center}
+~\\[1cm]
+\Large Faculté des Sciences et Ingénierie\\Sorbonne Université\\[3.5cm]
+\HRule 
+\\[0.4cm]{\huge \bfseries Projet Cryptoptimisation :\\[0.1cm] Plate-forme d’optimisation de portfolio de cryptomonnaies\\[0.4cm]}
+\HRule \\[1cm] 
+\Large \textsc{Julien Denes, Michaël Trazzi} \\[0.1cm]
+\Large Sous la supervision de \textsc{Thibaut Lust}\\[2cm]
+\Large Année 2017-2018 -- Master 1, Semestre 2 \\[3cm]
+\includegraphics[scale=0.4]{logo.png}
+\end{center}
+\end{titlepage}
+
 
 \section*{Introduction}
 

@@ -1,53 +1,98 @@
 \documentclass[a4paper]{article}
 
-\usepackage{lmodern, amsmath, amssymb, mathrsfs, graphicx, listings, tabularx, color, hyperref, pgfplots, pgfplotstable, booktabs, titling}
+\usepackage[french]{babel}
+\usepackage{lmodern, amsmath, amssymb, mathrsfs, graphicx, listings, tabularx, color, hyperref, pgfplots, pgfplotstable, booktabs, titling, authblk, parskip, pgfplots}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[french]{babel}
 \usepackage[labelfont=sc]{caption}
 \usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+\usepackage[backend=biber, url=false, isbn=false]{biblatex}
 \hypersetup{colorlinks, linkcolor=black, urlcolor=black}
-\usepackage{pgfplots} %problemes a la compilation sinon
 \pgfplotsset{compat=1.15}
-\usepackage{parskip} %pour ne pas mettre deux fois // entre chaque paragraphe
-\usepackage[backend=biber]{biblatex} %pour la gestion des citations
 \addbibresource{biblio.bib}
 \bibliography{biblio}
 
-\title{Projet Cryptofolio : cahier des charges}
-\author{Julien Denes, Michaël Trazzi}
+\title{Projet Cryptoptimisation : cahier des charges}
+\author[]{Julien Denes, Michaël Trazzi}
+\affil[]{Faculté des Sciences et Ingénierie -- Sorbonne Université}
 \date{Février 2018}
 
 \begin{document}
 
 \maketitle
 
-\section{Besoins du client}
+\section{Analyse du besoin client}
 
-"On souhaite, dans ce projet, réaliser une plate-forme d’optimisation de portfolio de crypto-monnaies, basée sur différentes théories modernes de l'optimisation de portfolio d'actifs. On souhaite notamment s'appuyer sur la théorie moderne du portefeuille développée par Harry Markowitz : en diversifiant son portfolio, un investisseur peut réduire le risque en détenant des actifs qui ne soient pas ou peu positivement corrélés, donc en diversifiant ses placements. Cela permet d'obtenir la même espérance de rendement en diminuant la volatilité du portefeuille."
+\subsection{Introduction du problème}
 
-Le produit final de ce projet prendrait la forme d'une aide à la décision pour des individus qui souhaiteraient investir dans les cryptomonnaies. Selon les critères qu'ils fixeront (par exemple caractéristique du protfolio à optimiser, durée de l'investissement souhaité, portfolio fixe ou optimisé à intervalle régulier, etc.), le logiciel leur proposerait des portfolios possibles. On proposera également d'autres outils pour permettre aux investisseurs de mieux comprendre le marché, comme des interfaces d'affichage des capitalisations des monnaies ou des graphiques d'évolution des prix.
+Aujourd’hui, les monnaies numériques (dites cryptomonnaies) sont en plein essor. L'année 2017 a vu apparaitre des centaines de nouvelles cryptomonnaies sur le marché. Le bitcoin, crypto-monnaie la plus connue, ne cesse d’accumuler les records. En 2016, le bitcoin a bondi de plus de 120\%, dépassant les 1 000 dollars. En 2017, la monnaie pulvérise ses propres exploits et s'évalue à près de 20 000 dollars. La progression fulgurante de son prix attire ainsi toujours plus d'émulation autour d'elle, et ceux qui souhaitent profiter de cette croissance sont toujours plus nombreux. L’investissement dans les cryptomonnaies présente néanmoins un risque important, et est réservé aux investisseurs présentant une excellente tolérance au risque. La haute volatilité des cours des cryptomonnaies exige en effet des nerfs d’acier : la valeur du bitcoin a par exemple été divisée par 3 entre décembre 2017 et janvier 2018.
 
-\section{Contraintes}
+Partant de ce constat, on souhaite dans ce projet réaliser une plate-forme d’optimisation de portfolio de cryptomonnaies, basée sur différentes théories modernes de l'optimisation de portfolio d'actifs. On souhaite ainsi fournir une aide à la décision et à la gestion de portefeuille pour des utilisateurs de tous types, aussi bien habitués de la spéculation que novices.
 
-Les contraintes de ce projets proviennent principalement de l'environnement des cryptmonnaies. Il s'agira d'étudier dans quelle mesure les multiples travaux qui ont été menés auparavant sur l'optimisation de portfolio peuvent être adaptés au monde des cryptomonnaies. Cibles d'intense spéculation, elles sont en effet similaires aux produits financiers standards mais avec des charactéristiques propres : les marchés des monnaies sont très nombreux (chiffre), fortement volatiles, très corrélés entre eux, et parfois très influençables du fait des faibles volumes qui y sont échangés.
+Pour des utilisateurs plutôt novices et averses au risque, on souhaite s'appuyer sur la théorie moderne du portefeuille développée par Markovitz \cite{Markovitz1952}. Celui-ci a en effet démontré qu'en diversifiant son portfolio, un investisseur peut réduire le risque en choisisant des actifs peu ou pas positivement corrélés, atténuant ainsi le risque de chacun de ses placements. Il obtient ainsi la même espérance de rendement tout en diminuant la volatilité du portefeuille.
+
+On souhaite également proposer un produit utile aux connaisseurs des marchés des cryptomonnaies et aux habitués des portfolios d'actifs boursiers. La littérature montre en effet que le trading algorithmique se révèle bien souvent plus efficace que l'Homme en matière d'optimisation de portfolio, parce qu'ils s'appuient sur des modèles (ou non) imperméables au stress (\cite{Chaboud2014}). On s'intéressera donc également ce projet à des critères de décision plus orientés vers la maximisation du gain, pour des investisseurs plus tolérants au risque (voir \cite{Li2014}).
+
+\subsection{Attentes fonctionnelles du besoin}
+
+Le produit final de ce projet prendra la forme d'une aide à la décision en ligne pour des individus qui souhaiteraient investir dans les cryptomonnaies. L'outil central de cette plateforme web consistera en une interface de suggestion de portfolios possibles, selon des critères de nature diverse fixés par l'utilisateur. Parmi eux, seront notamment nécessaire : le paramètre à optimiser en fonction de l'aversion au risque (minimiser le risque ou maximiser le retour sur investissement), la durée de l'investissement souhaité, ou encore le choix entre un portfolio fixe sur la période ou ré-optimisé à intervalle régulier.
+
+On proposera également d'autres outils pour permettre aux investisseurs de mieux comprendre le marché, comme des interfaces d'affichage des capitalisations des monnaies, des volumes d'échanges, ou encore des graphiques d'évolution des prix et des outils de suivi de la valeur d'un portfolio enregistré par l'utilisateur. Si le temps le permet, on pourra également imaginer implémenter un indicateur autour de la "hype" de chaque monnaie, le marché des cryptomonnaies étant très influencé par des facteurs de popularité. On ne souhaite cependant pas créer une interface de gestion directe de portefeuille : il ne sera pas possible d'acheter ou de vendre des monnaies depuis celle-ci, mais cette option  reste envisageable dans une extension future de ce projet.
+
+\subsection{Contraintes par rapport à l'existant}
+
+Les algorithmes dits "de trading", ayant pour rôle l'optimisation automatisée des portfolio d'actifs boursiers traditionnels, sont bien connus du monde académique et largement utilisée dans celui de la finance (voir \cite{Li2014}). Les études sur leur applicabilité et leur application aux marchés des cryptomonnaies sont cependant plus rares, et les auteurs se content surtout pour le moment d'études marginales sur la possibilité d'incorporer des cryptomonnaies à des portefeuilles d'actifs standards (\cite{Elendner2018}). Les études qui se focalisent sur les caractéristiques financières portfolios de cryptomonnaies, comme \cite{KuoChuen17} et \cite{Chen2018} sont rares, et celles qui tentent d'étudier l'application des algorithmes d'optimisation sont absentes.
+
+L'environnement des cryptmonnaies présente en effet des caractéristiques propres qu'il sera nécessaire d'étudier avant d'y appliquer des algorithmes d'optimisation de portfolio. Par rapport aux marchés d'actifs standards, les marchés des cryptomonnaies sont très nombreux : la plateforme de référence Coinmarketcap dénombre à ce jour (février 2018) plus de 1500 cryptomonnaies, dont la capitalisation totale s'élève à plus de 430 milliards de dollars, et qui s'échangent sur plus de 8500 marchés. Ces monnaies sont également fortement volatiles, très corrélées entre elles, et sont parfois très influençables du fait des faibles volumes qui y sont échangés. Il sera donc nécessaire d'étudier dans quelle mesure ces caractéristiques peuvent avoir un impact sur les prérequis des algorithmes d'optimisation usuels. On pense notamment à la théorie moderne du portefeuille de Markoviz qui présuppose de disposer de produits financiers décorrelés.
 
 \section{Solution envisagée}
 
 \subsection{Etapes de travail}
 
-Il s'agit tout d'abord d'étudier les différents algorithmes de trading déjà existants. On cherchera notamment à détailler les différents types de trading (portfolio fixé ou constamment réorganisé ?), sur les critères qu'ils utilisent (minimisation du risque comme Markovitz ou maximisation du gain ?) afin de proposer dans le produit final des solutions adaptées à toutes les demandes que pourraient avoir les utilisateurs.
+Il s'agit tout d'abord d'étudier les différents algorithmes de trading déjà existants. On cherchera notamment à les détailler selon différents paramètres :
+\begin{itemize}
+    \item le type de trading considéré : portfolio fixé ou bien constamment réorganisé
+    \item le critère de performance auquel ils s'intéressent : minimisation du risque (selon la théorie de la "Mean Variance Theory") comme Markovitz, ou maximisation du gain (suivant la "Capital Growth Theory").
+\end{itemize}
+Le but de cette analyse est de proposer dans le produit final des solutions adaptées à toutes les demandes que pourraient avoir les utilisateurs (voir "Implémentation des fonctionnalités" plus bas).
 
-On souhaitera ensuite étudier leur applicabilité aux cryptomonnaies. Il s'agira principalement d'une étude empirique.
+A partir de cette étude que l'on souhaitera exhaustive au possible, on s'intéressera ensuite à l'applicabilité de ces algorithmes pour le marché des cryptommonaies. On souhaiteras mener des analyses de différents types :
+\begin{itemize}
+    \item Vérifier si les hypothèses à la base des algorithmes étudiés sont vérifiées dans le cas des cryptomonnaies. Certains sont en effet basés sur des modèles mathématiques poussés, ou sur des hypothèses relatives aux échanges d'actifs. On cherchera à vérifier théoriquement ces prérequis.
+    \item Dans la prolongation de ces vérifications, on effectuera ensuite une étude de marchés des cryptomonnaies. Nous nous intéresseront plus particulièrement aux corrélations entre monnaies, ainsi que les impacts qu'elles peuvent avoir sur la réussite des algorithmes d'optimization. On étudira également d'autre critères comme la capitalisation des monnaies, bon indicateur de l'influençabilité de son marché, ou encore de leur liquidité, indicateur de la rapidité de les acheter ou les vendre.
+    \item Enfin, nous chercherons à effectuer une analyse empirique de l'efficacité de l'ensemble des algorithmes dans le monde des cryptomonnaies. Nous chercherons en effet à retenir dans l'implémentation du logiciel le (ou peut-être "les" selon les résultats de nos analyses) meilleur algorithme, pour chacun des critères définis plus tôt.
+\end{itemize}\medskip
 
-On effectuera ensuite une étude des marchés des cryptomonnaies. Il serait par exemple intéressant d'étudier les corrélations entre les différentes crypto-monnaies.
+Finalement, la dernière étape de ce projet consistera en l'implémentation d'un logiciel, qui prendra la forme d’une plateforme web d’aide à la décision pour l’optimisation de portfolio de crypto-monnaies. Développée avec R Shiny, elle proposera différents outils à l'utilisateur, dont notamment un affichage de l'évolution des prix des cryptomonnaies disponibles, de leur capitalisation, mais surtout une interface d'aide à la constitution de portfolio utilisant les algorithmes les plus performants retenus à l'étape précédente. Les fonctionnalités précises de ce produit sont détaillées plus tard dans ce document.
 
-On souhaitera ensuite sélectionner le ou les algorithmes les plus performant(s) pour les différentes méthodes d'optimisations que l'on choisira de retenir pour le produit.
+\subsection{Calendrier indicatif}
 
-Enfin il s'agira de développer le logiciel, qui prendra la forme d’une plate-forme d’aide à la décision pour l’optimisation de portfolio de crypto-monnaies. La plate-forme sera une application web développée avec Python Django ou R Shiny, connectée à une api publique délivrant le cours des principales crypto-monnaies en temps réel.
+\begin{itemize}
+    \item Lundi 29 janvier : début du semester et début du projet
+    \item Mercredi 28 février : cahier des charges terminé
+    \item Mercerdi 14 mars : revue de la littérature et des algorithmes terminée
+    \item (Mercerdi 14 mars : tutora recherche bibliographique)
+    \item Mercredi 4 avril : analyse et test des performances des algorithmes terminés
+    \item Mercredi 11 avril : début de l'implémentation de la plateforme web
+    \item Mercredi 16 mai : implémentation de la plateforme web terminée
+    \item Vendredi 25 mai : rapport à rendre
+    \item Mardi 5 - vendredi 7 juin : soutenance
+\end{itemize}
 
-\subsection{Forme du produit}
+\subsection{Forme de la solution}
 
-On propose de fournir un apperçu du rendu final de l'interface :
+\subsubsection{Implémentations des fonctionnalités}
+
+[A rédiger] Caractéristiques techniques : développée en R Shiny
+- un affichage des capitalisations
+- un graphe des prix de chaque monnaie (grâce à une API publique délivrant le cours des principales crypto-monnaies en temps réel)
+- une interface d'aide à la construction d'un portfolio, avec choix du critère (risque ou max profit), de la période (multi ou unique), un montant, et éventuellement une plateforme de trading souhaitée (pour choisir les crypto disponibles)
+- ce qu'on ne proposera pas : un gestionnaire de postefeuille (juste aide à la décision)
+
+\subsubsection{Aperçu}
+
+On propose de fournir un aperçu du rendu final de l'interface.
+
+\printbibliography
 
 \end{document}
