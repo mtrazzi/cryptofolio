@@ -1,5 +1,7 @@
 # Cryptofolio
 
+[Landing Page](https://michaeltrazzi.wixsite.com/cryptoptimisation)
+
 Master's Project : create a optimized portfolio for cryptocurrencies using Markowitz's Modern Portfolio Theory
 
 More information [here](http://androide.lip6.fr/?q=node/384) (french)
