@@ -28,3 +28,7 @@ Summary of the main articles : [pdf](Rapport/Rapport.pdf) and [tex](Rapport/Rapp
 Predict what Twitter thinks of a particular cryptocurrency using Sentiment-analysis: [here](sentiment_analysis)
 
 Some setup needs to be done with the Google Cloud API
+
+## A fully working NN for crypto-currencies trading
+
+[Right here](https://github.com/ZhengyaoJiang/PGPortfolio)
