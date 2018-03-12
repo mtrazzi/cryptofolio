@@ -1,0 +1,73 @@
+\documentclass[a4paper]{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+\usepackage{lmodern, amsmath, amssymb, mathrsfs, graphicx, listings, tabularx, color, hyperref, pgfplots, pgfplotstable, booktabs, titling, authblk, parskip, pgfplots, csquotes, bibentry}
+\usepackage[backend=biber, url=false, isbn=false, style=ieee, sorting=nyt, natbib]{biblatex}
+\usepackage[labelfont=sc]{caption}
+\MakeOuterQuote{"}
+\hypersetup{colorlinks, linkcolor=black, urlcolor=black}
+\pgfplotsset{compat=1.15}
+\addbibresource{biblio.bib}
+\bibliography{biblio}
+
+\title{Projet Cryptoptimisation :\\Carnet de bord de la recherche bibliographique}
+\author[]{Julien Denes, Michaël Trazzi}
+\affil[]{Master 1 Informatique, spécialité ANDROIDE\\Sorbonne Université}
+\date{Février 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Les monnaies numériques (dites cryptomonnaies) sont aujourd'hui en plein essor, et réalisent des performances de croissances inégalées par les actifs financiers traditionnels, tout en étant bien plus accessibles grâce aux sites d'échanges faciles d'utilisation. Partant de ce constat, on souhaite dans ce projet réaliser une plate-forme d’optimisation de portfolio de cryptomonnaies. Utilisant différentes théories modernes de l'optimisation de portfolio d'actifs, celle-ci fournira une aide à la décision et à la gestion de portefeuille pour des utilisateurs de tous types, aussi bien habitués de la spéculation que novices en la matière. Les enjeux sont ainsi d'ouvrir au plus grand nombre les possibilités de spéculation sur ces marchés, tout en minimisant le risque et les connaissances nécessaires.
+
+\section{Mots clés retenus}
+
+Notre projet s'appuie sur les sept mots-clés suivant, qui peuvent être hiérarchisés en deux concepts principaux et cinq plus spécialisés qui dépendent d'eux :
+
+\begin{itemize}
+    \item Finance
+    \begin{itemize}
+        \item Trading algorithmique
+        \item Cryptomonnaies
+        \item Optimisation de portefeuille
+    \end{itemize}
+    \item Apprentissage automatique
+    \begin{itemize}
+        \item Apprentissage par renforcement
+        \item Réseaux de neurones
+    \end{itemize}
+\end{itemize}
+
+\section{Descriptif de la recherche documentaire}
+
+Les principaux catalogues et sources que nous avons utilisés sont Google Scholar, arXiv.org, l'archive ouverte HAL et, par extension, les bibliographies des articles trouvés au préalable. La source qui nous a le plus aidé pour commencer est Google Scholar : grâce à sa généralité et au très grand nombre de sources indexées, ce moteur nous a permis de trouver rapidement, avec différentes combinaisons de mots clés, des articles au thème très proches de celui de notre projet (par exemple \cite{Jiang2017}). A partir de cela, nous nous sommes beaucoup appuyés sur les bibliographies des articles ainsi trouvés pour trouver des articles plus spécialisés. En effet, les moteurs de recherches ne se sont pas toujours montrés efficaces pour trouver ces derniers, à cause de la multiplicité des termes utilisés par les auteurs dans le titre de leurs articles : un exemple est celui de l'usage de "portfolio selection" au lien de "portfolio optimization". Nous nous sommes également appuyé sur le dépôt de pré-publications en ligne arXiv.org : disposant inévitablement de moins de ressources, il s'est montré utile pour découvrir des travaux académiques d'étudiants difficiles à trouver ailleurs puisque presque jamais cités. Enfin, HAL s'est révélée utile pour trouver des ressources plus diverses, par exemple des cours qui nous ont permis de comprendre les bases du sujet. Cependant, cette variété de sources nous a quelques peu desservie par la suite : elle indexe par exemple de nombreuses thèses ou communications orales bien moins facilement exploitables.
+
+\section{Bibliographie produite dans le cadre du projet}
+
+\nocite{*}
+\printbibliography[heading=none]
+
+\section{Évaluation des sources}
+
+\textbf{\fullcite{Elendner2018}}
+
+Nous avons trouvé ce document par le biais de Google Scoolar avec la recherche "cryptocurrencies as financial assets". Disponible uniquement sur Science Direct, nous en avons demandé l'accès à notre encadrant. La source est très récente : le livre dont elle est extraite a été publié en janvier 2018. Ce chapitre est très pertinent pour notre projet : il analyse la possibilité de considérer les cryptomonnaies comme des actifs financiers, usage que nous souhaitons en faire via notre plate-forme. L'éditeur, Academic Press, branche d'Elsevier, semble digne de confiance. Les premiers auteurs sont des académiques de l'université Humboldt de Berlin, spécialisés dans la finance et les statistiques.\footnote{\url{http://elendner.net/}} \footnote{\url{https://www.wiwi.hu-berlin.de/de/professuren/quantitativ/statistik/members/personalpages/trimbors}}
+Le livre dont est extrait l'article regroupe de nombreuses contributions techniques sur le monde le finance digitale et ne semble pas soumis à des conflits d'intérêts. Les propos sont en effet principalement basés sur des études statistiques difficilement manipulables. La qualité du contenu est conforme à nos attentes : à grand renfort d'analyses économétriques, les auteurs démontrent la rentabilité des cryptomonnaies et la possibilité de les intégrer à des portfolios pour les diversifier.
+
+\textbf{\fullcite{Jiang2017}}
+
+Cet article est l'un des premiers que nous avons trouvé, et ce grâce à Google Scoolar : il partage en effet de nombreux mots clés avec notre projet. Publié en 2017, il s'agit de l'un des travaux les plus aboutis aujourd'hui sur l'application du machine learning sur des portfolios de cryptomonnaies. L'article joue donc naturellement un rôle central dans notre travail. Non publié dans un journal, ce travail a cependant fait l'objet d'une communication orale à l'Intelligent Systems Conference 2017, organisée par l'IEEE. L'un des auteurs est professeur de mathématiques à l'université Xi'an Jiaotong-Liverpool, tandis que l'autre est étudiant au département d'informatique de cette université.\footnote{\url{http://www.xjtlu.edu.cn/en/departments/academic-departments/mathematical-sciences/staff/jinjun-liang}}
+La robustesse et le niveau de cette publication sont donc critiquables, cependant elle s'appuie sur une expérience informatique (très objective), dont le code est présent en ligne et donc reproductible. Ce travail académique est donc à nos yeux digne de confiance et d'intérêt dans le cadre de notre projet.
+
+\textbf{\fullcite{Li2014}}
+
+Nous avons trouvé cet article via la bibliographie de \citet{Jiang2017} présenté ci-dessus. Publié en 2014, cet article demeure le plus complet à ce jour dans l'établissement d'une revue des algorithmes d'optimisation de portfolios traditionnels. Cet article est l'un des plus centraux pour notre projet : il liste et explique les modèles sur lesquels se basent les dits algorithmes, nous permettant de pouvoir les implémenter et les tester. La source est sûre, puisque le journal ACM Computing Surveys, fondé en 1969, est une publication officielle de l'Association for Computer Machinery, plus ancienne association d'informatique au monde. La revue cumule plus de 52000 citations\footnote{\url{https://csur.acm.org/}}. Les deux auteurs sont quant à eux professeurs à la Nanyang Technological University de Singapour, respectivement en ingénierie et en informatique et cumulent à eux deux plusieurs centaines de publications.\footnote{\url{http://stevenhoi.org/}} \footnote{{http://www.cee.ntu.edu.sg/aboutus/FacultyDir/Pages/cbli.aspx}}
+Leur publication, objective, poursuit des visées académiques. Enfin, le contenu, de grande qualité rédactionnelle et mathématique, démontre et résume avec précision les travaux précédemment réalisés.
+
+\end{document}
