@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <link rel="stylesheet" href="/media/css/style.css" />
+   <title>{% block title %}Cryptoptimisation{% endblock %}</title>
+</head>
+<body>
+<header><h1>Cryptoptimisation : un splendide site pour optimiser votre portfolio.<h1></header>
+    <nav>
+       {% block nav %}
+       <ul>
+            <li><a href="/optimizer/accueil">Accueil</a></li>
+            <li><a href="/optimizer/article/42">Articles</a></li>
+            <li><a href="/optimizer/date/">Date</a></li>
+            <li><a href="/optimizer/addition/7/8">Addition</a></li>
+       </ul>
+       {% endblock %}
+   </nav>
+   <section id="content">
+       {% block content %}{% endblock %}
+   </section>
+<footer>&copy; Julien Denes, Michaël Trazzi</footer>
+</body>
+</html>
