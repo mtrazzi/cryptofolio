@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from datetime import datetime
+from django.http import HttpResponseRedirect
 
 # Fonction home
 #request = info sur la méthode de requète (get ou post) et autres
@@ -24,3 +25,9 @@ def addition(request, nombre1, nombre2):
     total = nombre1 + nombre2
     # Retourne nombre1, nombre2 et la somme des deux au tpl
     return render(request, 'optimizer/addition.html', locals())
+
+def landingpage(request):
+    return HttpResponseRedirect('https://michaeltrazzi.wixsite.com/cryptoptimisation')
+
+def githubrepo(request):
+    return HttpResponseRedirect('https://github.com/mtrazzi/cryptofolio')
