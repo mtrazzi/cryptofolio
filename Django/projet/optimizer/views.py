@@ -31,3 +31,6 @@ def landingpage(request):
 
 def githubrepo(request):
     return HttpResponseRedirect('https://github.com/mtrazzi/cryptofolio')
+
+def dashboard(request):
+    return render(request, 'optimizer/dashboard.html', locals())

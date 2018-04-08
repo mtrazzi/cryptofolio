@@ -9,4 +9,5 @@ urlpatterns = [
     path('addition/<int:nombre1>/<int:nombre2>/', views.addition),
     path('landingpage/', views.landingpage),
     path('githubrepo/', views.githubrepo),
+    path(r'^dashboard/', views.dashboard),
 ]
