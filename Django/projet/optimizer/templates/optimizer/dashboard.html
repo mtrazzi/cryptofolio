@@ -271,6 +271,7 @@
                   <th>M. Cap</th>
                 </tr>
               </thead>
+              {% print_table_html as output %}
               <tfoot>
                 <tr>
                   <th>#</th>
@@ -281,22 +282,12 @@
                 </tr>
               </tfoot>
               <tbody>
-                <tr>
-                  <td>test</td>
-                  <td>test</td>
-                  <td>test</td>
-                  <td>test</td>
-                  <td>test</td>
-                </tr>
-                {% print_table_html as output %}
                 {% for row in output %}
-                  <tr>
-                    <td>{{row[0]}}</td>
-                    <td>row[1]</td>
-                    <td>row[2]</td>
-                    <td>row[3]</td>
-                    <td>row[4]</td>
-                  </tr>
+                <tr>
+                {% for x in row%}
+                    <td>{{x}}</td>
+                {% endfor %}
+                </tr>
                 {% endfor %}
               </tbody>
             </table>

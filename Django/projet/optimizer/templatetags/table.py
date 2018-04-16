@@ -10,4 +10,4 @@ register = template.Library()
 @register.simple_tag
 def print_table_html():
     path = os.path.join(settings.BASE_DIR, "resources/data.csv")
-    return [line.rstrip('\n').split(',') for line in open(path)]
+    return [line.rstrip('\n').split(',') for line in open(path)][1:]
