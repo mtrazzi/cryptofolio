@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from datetime import datetime
 from django.http import HttpResponseRedirect
+from django.contrib.auth.views import login
 
 # Fonction home
 #request = info sur la méthode de requète (get ou post) et autres
@@ -34,3 +35,6 @@ def githubrepo(request):
 
 def dashboard(request):
     return render(request, 'optimizer/dashboard.html', locals())
+
+def login(request):
+    return render(request, 'optimizer/login.html', locals())
