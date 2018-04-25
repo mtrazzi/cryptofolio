@@ -133,3 +133,4 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     '/home/michael/cryptofolio/Django/projet/optimizer/static',
 )
+LOGIN_REDIRECT_URL = '/optimizer/dashboard.html'
