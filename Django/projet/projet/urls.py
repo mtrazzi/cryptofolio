@@ -19,5 +19,6 @@ from django.urls import path, include
 # ajouter toutes nos pages (i.e. fonctions) à cette list
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('optimizer/', include('optimizer.urls')),
 ]

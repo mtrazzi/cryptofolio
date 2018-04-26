@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+{% load static %}
+{% load table %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Dashboard</title>
+  <!-- Bootstrap core CSS-->
+  <link href={% static 'bootstrap/vendor/bootstrap/css/bootstrap.min.css' %} rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href={% static 'bootstrap/vendor/font-awesome/css/font-awesome.min.css' %} rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href={% static 'bootstrap/vendor/datatables/dataTables.bootstrap4.css' %} rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href={% static 'bootstrap/css/sb-admin.css' %} rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">Cryptofolio</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Optimize">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Optimize</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" href="/accounts/login/">
+          <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">My Dashboard</li>
+      </ol>
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Example Bar Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-bar-chart"></i>Your Portfolio</div>
+            <div class="card-body">
+              <div class="row">
+
+                <div class="col-sm-4 text-center my-auto">
+                  <div class="h4 mb-0 text-primary">ETH 20.0000 </div>
+                  <div class="small text-muted">$23,296</div>
+                  <hr>
+                  <div class="h4 mb-0 text-warning">BTC 1.00000</div>
+                  <div class="small text-muted">$10,971</div>
+                  <hr>
+                  <div class="h4 mb-0 text-success">XRP 400.00</div>
+                  <div class="small text-muted">$204.57</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Cryptocurrency Market Capitalizations</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Change</th>
+                  <th>M. Cap</th>
+                </tr>
+              </thead>
+              {% print_table_html as output %}
+              <tfoot>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Change</th>
+                  <th>M. Cap</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                {% for row in output %}
+                <tr>
+                {% for x in row%}
+                    <td>{{x}}</td>
+                {% endfor %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Made by Michaël Trazzi and Julien Denes</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="/accounts/login">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src={% static 'bootstrap/jquery/jquery.min.js' %}></script>
+    <script src={% static 'bootstrap/js/bootstrap.bundle.min.js' %}></script>
+    <!-- Core plugin JavaScript-->
+    <script src={% static 'bootstrap/vendor/jquery-easing/jquery.easing.min.js' %}></script>
+    <!-- Page level plugin JavaScript-->
+    <script src={% static 'bootstrap/vendor/chart.js/Chart.min.js' %}></script>
+    <script src={% static 'bootstrap/vendor/datatables/jquery.dataTables.js' %}></script>
+    <script src={% static 'vendor/datatables/dataTables.bootstrap4.js' %}></script>
+    <!-- Custom scripts for all pages-->
+    <script src={% static 'bootstrap/js/sb-admin.min.js' %}></script>
+    <!-- Custom scripts for this page-->
+    <script src={% static 'bootstrap/js/sb-admin-datatables.min.js' %}></script>
+    <script src={% static 'bootstrap/js/sb-admin-charts.min.js' %}></script>
+  </div>
+</body>
+
+</html>
