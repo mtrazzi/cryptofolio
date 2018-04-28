@@ -54,11 +54,17 @@
     <div class="content-wrapper">
       <div class="container-fluid">
         <!-- Breadcrumbs-->
-
-        <form>
-          Initial Investment (BTC): <input type="text"><br>
-          <h3>Risk</h3>
-          <select id="risk" size="3">
+        <form action="/optimizer/pgportfolio.html" method="post">
+            <label for="your_name">Your name: </label>
+            <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+            <input type="submit" value="OK">
+        </form>
+        <!--form action="portfolio/" method="get">
+          Initial Investment (BTC): <input type="text" method="get"><br>
+          <!-- AFTER
+          FIRST GET
+          h3>Risk</h3>
+          <select id="risk" size="3" method="get">
             <option>Low</option>
             <option>Medium</option>
             <option>High</option>
@@ -66,8 +72,9 @@
 
         <h3>Algorithm</h3>
         <a class="btn btn-primary" href="#" id="Markowitz">Markowitz</a>
-        <a class="btn btn-primary" href="#" id="Neural Network">Neural Network</a>
-        </form>
+        <a class="btn btn-primary" href="pgportfolio.html" id="Neural Network">Neural Network</a>
+        <input class="btn btn-primary" type="submit" id="pgportfolio" value="Neural Network" formmethod="get">
+      </form-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">

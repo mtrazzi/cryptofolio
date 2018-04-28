@@ -41,3 +41,8 @@ def login(request):
 
 def optimize(request):
     return render(request, 'optimizer/optimize.html', locals())
+
+def pgportfolio(request, query=None):
+    best = "EVERYTHING IN BITCOIN"
+    html = "<html><body>Best portfolio: %s</body></html>" % best
+    return HttpResponse(html)
