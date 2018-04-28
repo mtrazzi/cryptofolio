@@ -38,3 +38,6 @@ def dashboard(request):
 
 def login(request):
     return render(request, 'optimizer/login.html', locals())
+
+def optimize(request):
+    return render(request, 'optimizer/optimize.html', locals())
