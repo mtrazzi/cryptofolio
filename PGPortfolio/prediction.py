@@ -9,7 +9,7 @@ from pgportfolio.marketdata.poloniex import Poloniex
 from pgportfolio.learn.nnagent import NNAgent
 from pgportfolio.tools.data import get_type_list, get_chart_until_success
 from pgportfolio.tools.configprocess import load_config
-from pgportfolio.tools.trade import calculate_pv_after_commission
+# from pgportfolio.tools.trade import calculate_pv_after_commission
 # from pgportfolio.tdagent.algorithms import crp, olmar, up, anticor1, pamr, best, bk, cwmr_std, eg, sp, ubah, wmamr, bcrp, cornk, m0, rmr
 
 # Given a Poloniex object (to read Poloniex API), outputs a dataframe with coins infomation
@@ -100,7 +100,7 @@ def predict_portfolio(algo, chosen_coins, date, old_omega):
     print(old_omega.shape)
     omega = myAgent.decide_by_history(history, old_omega)
 
-    return omega1
+    return omega
 
 def main():
     now = time.time()
