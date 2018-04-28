@@ -7,4 +7,5 @@ from django.urls import path, include
 urlpatterns = [
     path('dashboard.html', views.dashboard),
     path('login.html', views.login),
+    path('optimize.html', views.optimize),
 ]

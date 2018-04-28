@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Dashboard</title>
+  <title>Portfolio Optimization</title>
   <!-- Bootstrap core CSS-->
   <link href={% static 'bootstrap/vendor/bootstrap/css/bootstrap.min.css' %} rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -50,74 +50,24 @@
       </li>
     </ul>
   </nav>
-  <div class="content-wrapper">
-    <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      <div class="row">
-        <div class="col-lg-8">
-          <!-- Example Bar Chart Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-bar-chart"></i>Your Portfolio</div>
-            <div class="card-body">
-              <div class="row">
-
-                <div class="col-sm-4 text-center my-auto">
-                  <div class="h4 mb-0 text-primary">ETH 20.0000 </div>
-                  <div class="small text-muted">$23,296</div>
-                  <hr>
-                  <div class="h4 mb-0 text-warning">BTC 1.00000</div>
-                  <div class="small text-muted">$10,971</div>
-                  <hr>
-                  <div class="h4 mb-0 text-success">XRP 400.00</div>
-                  <div class="small text-muted">$204.57</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Cryptocurrency Market Capitalizations</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Change</th>
-                  <th>M. Cap</th>
-                </tr>
-              </thead>
-              {% print_table_html as output %}
-              <tfoot>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Change</th>
-                  <th>M. Cap</th>
-                </tr>
-              </tfoot>
-              <tbody>
-                {% for row in output %}
-                <tr>
-                {% for x in row%}
-                    <td>{{x}}</td>
-                {% endfor %}
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- /.container-fluid-->
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <!-- Breadcrumbs-->
+
+        <form>
+          Initial Investment (BTC): <input type="text"><br>
+          <h3>Risk</h3>
+          <select id="risk" size="3">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+
+        <h3>Algorithm</h3>
+        <a class="btn btn-primary" href="#" id="Markowitz">Markowitz</a>
+        <a class="btn btn-primary" href="#" id="Neural Network">Neural Network</a>
+        </form>
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
@@ -163,6 +113,7 @@
     <script src={% static 'bootstrap/js/sb-admin-datatables.min.js' %}></script>
     <script src={% static 'bootstrap/js/sb-admin-charts.min.js' %}></script>
   </div>
+</div>
 </body>
 
 </html>
