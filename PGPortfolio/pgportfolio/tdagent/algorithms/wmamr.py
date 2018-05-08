@@ -25,10 +25,10 @@ class WMAMR(PAMR):
 
 
     def decide_by_history(self, x, last_b):
-        self.record_history(x)
+        # self.record_history(x)
+        self.history = x
         xx = np.mean(self.history[-self.window:,], axis=0)
         # calculate return prediction
         b = self.update(last_b, xx, self.eps, self.C)
 
         return b
-

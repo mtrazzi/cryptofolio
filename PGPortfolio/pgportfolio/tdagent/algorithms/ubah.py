@@ -12,6 +12,8 @@ class UBAH(TDAgent):
         :param x: input matrix
         :param last_b: last portfolio weight vector
         '''
+        self.history = x
+        self.b = last_b
         if self.b is None:
             self.b = np.ones(12) / 12
         else:

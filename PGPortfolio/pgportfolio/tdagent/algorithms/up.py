@@ -38,7 +38,8 @@ class UP(TDAgent):
 
     def decide_by_history(self, x, last_b):
         # calculate new wealth of all CRPs
-        x = self.get_last_rpv(x)
+        # x = self.get_last_rpv(x)
+        x = x.T[:,-1]
         x = np.reshape(x, (1,x.size))
 
         if self.W is None:
@@ -60,6 +61,3 @@ def mc_simplex(d, points):
     a = np.sort(np.random.random((points,d)))
     a = np.hstack([np.zeros((points,1)), a, np.ones((points,1))])
     return np.diff(a)
-
-
-

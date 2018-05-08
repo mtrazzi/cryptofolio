@@ -62,6 +62,7 @@ def get_test_data(config):
     config["input"]["norm_method"] = "relative"
     config["input"]["global_period"] = config["input"]["global_period"]
     price_matrix = DataMatrices.create_from_config(config)
+    # test_set = price_matrix.get_test_set()["X"][:,0,:]
     test_set = price_matrix.get_test_set()["y"][:, 0, :].T
     test_set = np.concatenate((np.ones((1, test_set.shape[1])), test_set), axis=0)
     return test_set
@@ -83,4 +84,3 @@ def save_test_data(config, file_name="test_data", output_format="csv"):
         matrix = get_test_data(config)
         with open(file_name+"."+output_format, 'wb') as f:
             np.savetxt(f, matrix.T, delimiter=",")
-

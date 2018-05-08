@@ -9,7 +9,9 @@ class SP(TDAgent):
         self.last_b = last_b
 
     def decide_by_history(self, x, last_b):
-        self.record_history(x)
+        # self.record_history(x)
+        self.history = x
+        self.last_b = last_b
         nx = self.history[-1,:].ravel()
         if self.last_b is None:
             self.last_b = np.ones(nx.size) / nx.size

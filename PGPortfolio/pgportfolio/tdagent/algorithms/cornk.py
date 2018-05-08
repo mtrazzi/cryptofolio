@@ -20,10 +20,11 @@ class CORNK(TDAgent):
         self.exp_w = exp_w
 
 
-    def decide_by_history(self, X, last_b):
-        self.record_history(X)
-
-        n, m = self.history.shape
+    def decide_by_history(self, data, last_b):
+        # self.record_history(x)
+        # data = self.history
+        self.history = data
+        n, m = data.shape
 
         if self.exp_w is None:
             self.exp_w = np.ones((self.K*self.L, m)) / m

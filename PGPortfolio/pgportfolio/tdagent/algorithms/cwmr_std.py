@@ -34,7 +34,8 @@ class CWMR_STD(TDAgent):
 
 
     def decide_by_history(self, x, last_b):
-        x = self.get_last_rpv(x)
+        # x = self.get_last_rpv(x)
+        x = x.T[:,-1]
         x = np.reshape(x, (1,x.size))
         last_b = np.reshape(last_b, (1,last_b.size))
         if self.sigma is None:
@@ -92,4 +93,3 @@ class CWMR_STD(TDAgent):
         end
         """
         return mu, sigma
-

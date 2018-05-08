@@ -62,4 +62,3 @@ class ONS(TDAgent):
 
         sol = solvers.qp(P, q, G, h, A, b)
         return np.squeeze(sol['x'])
-

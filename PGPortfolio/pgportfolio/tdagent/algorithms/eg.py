@@ -25,7 +25,11 @@ class EG(TDAgent):
         self.b = np.ones(x.size)
 
     def decide_by_history(self, x, last_b):
-        self.record_history(x)
+        # self.record_history(x)
+        self.history = x
+        self.last_b = last_b
+        self.b = last_b
+
         x = self.history[-1,:].ravel()
         if self.last_b is None:
             self.last_b = np.ones(x.size) / x.size
@@ -36,4 +40,3 @@ class EG(TDAgent):
         b = self.b / np.sum(self.b)
         self.last_b = b
         return b
-

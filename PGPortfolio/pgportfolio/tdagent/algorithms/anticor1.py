@@ -13,7 +13,8 @@ class ANTICOR1(TDAgent):
         self.exp_w = exp_w
 
     def decide_by_history(self, x, last_b):
-        self.record_history(x)
+        # self.record_history(x)
+        self.history = x
         n, m = self.history.shape
         if self.exp_w is None:
             self.exp_w = np.ones((self.window-1,m)) / m

@@ -15,11 +15,10 @@ class BK(TDAgent):
         self.exp_ret = np.ones((K,L+1))
         self.exp_w = exp_w
 
-    def decide_by_history(self, x, last_b):
-        self.record_history(x)
-
-        data = self.history
-
+    def decide_by_history(self, data, last_b):
+        # self.record_history(x)
+        # data = self.history
+        self.history = data
         n, m = data.shape
 
         if self.exp_w is None:

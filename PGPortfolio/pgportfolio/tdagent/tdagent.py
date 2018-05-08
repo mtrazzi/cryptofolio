@@ -52,13 +52,15 @@ class TDAgent(object):
         return first.T
 
     def record_history(self, x):
-        nx = self.get_last_rpv(x)
-        nx = np.reshape(nx, (1,nx.size))
+        print("X", x.shape)
+        # nx = self.get_last_rpv(x)
+        # nx = np.reshape(nx, (1,nx.size))
         if self.history is None:
             #self.history = self.get_first_history(x)
-            self.history = nx
+            self.history = x
         else:
             self.history = np.vstack((self.history, nx))
+        print("Processed", self.history.shape)
 
     def get_close(self):
         '''get close data from relative price

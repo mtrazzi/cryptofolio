@@ -40,7 +40,9 @@ class PAMR(TDAgent):
         self.b = b
 
     def decide_by_history(self, x, last_b):
-        x = self.get_last_rpv(x)
+        # x = self.get_last_rpv(x)
+        x = x.T[:,-1]
+        self.last_b = last_b
         # calculate return prediction
         if self.b is None:
             self.b = np.ones(x.size) / x.size
@@ -75,5 +77,3 @@ class PAMR(TDAgent):
 
         # project it onto simplex
         return self.simplex_proj(b)
-
-

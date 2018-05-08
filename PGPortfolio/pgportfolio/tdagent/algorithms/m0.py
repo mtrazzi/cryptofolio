@@ -19,7 +19,9 @@ class M0(TDAgent):
         self.C = C
 
     def decide_by_history(self, x, last_b):
-        x = self.get_last_rpv(x)
+        # x = self.get_last_rpv(x)
+        x = x.T[:,-1]
+        self.C = last_b
         m = x.size
         if self.C is None:
             self.C = np.zeros((m,1))
@@ -28,4 +30,3 @@ class M0(TDAgent):
         self.C[max_ind] += 1
 
         return b.ravel()
-

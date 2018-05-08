@@ -18,10 +18,10 @@ class CRP(TDAgent):
         self.b = b
 
     def decide_by_history(self, x, last_b):
-        x = self.get_last_rpv(x)
+        # x = self.get_last_rpv(x)
+        x = x.T[:,-1]
 
         # init b to default if necessary
         if self.b is None:
             self.b = np.ones(len(x)) / len(x)
         return self.b
-

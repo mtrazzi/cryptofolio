@@ -33,8 +33,11 @@ class OLMAR(TDAgent):
         #self.last_b = last_b
 
     def decide_by_history(self, x, last_b):
-        self.record_history(x)
-        nx = self.get_last_rpv(x)
+        # self.record_history(x)
+        # nx = self.get_last_rpv(x)
+        self.history = x
+        nx = x.T[:,-1]
+        self.b = last_b
         #if self.last_b is None:
         #    self.last_b = np.ones(12)/12
         #if self.history.shape[0] < self.window:
@@ -81,5 +84,3 @@ class OLMAR(TDAgent):
         b = b + lam * (x - x_mean)
         # project it onto simplex
         return self.euclidean_proj_simplex(b)
-
-

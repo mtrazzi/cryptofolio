@@ -22,14 +22,15 @@ class BCRP(CRP):
 
     def decide_by_history(self, x, last_b):
         if self.last_b is None:
-            from pgportfolio.tools.trade import get_test_data
-            from pgportfolio.tools.configprocess import preprocess_config
-            import json
-            with open("pgportfolio/net_config.json") as file:
-                config = json.load(file)
-            config = preprocess_config(config)
-            data = get_test_data(config)
-            self.last_b = self.get_weight(data.T)
+            # from pgportfolio.tools.trade import get_test_data
+            # from pgportfolio.tools.configprocess import preprocess_config
+            # import json
+            # with open("pgportfolio/net_config.json") as file:
+            #     config = json.load(file)
+            # config = preprocess_config(config)
+            # data1 = get_test_data(config)
+            # print("Actual Y", data1[:,-1], data1.shape)
+            self.last_b = self.get_weight(x)
 
         return self.last_b
 
@@ -53,4 +54,3 @@ if __name__ == '__main__':
     data = get_test_data(config)
     bcrp = BCRP()
     result = bcrp.get_weight(data.T)
-
