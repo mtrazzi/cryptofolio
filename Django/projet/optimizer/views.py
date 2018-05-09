@@ -3,6 +3,13 @@ from django.shortcuts import render
 from datetime import datetime
 from django.http import HttpResponseRedirect
 from django.contrib.auth.views import login
+from os import path
+import sys
+
+sys.path.append(path.abspath('../../'))
+sys.path.append(path.abspath('../../PGPortfolio'))
+from PGPortfolio.main import *
+
 
 # Fonction home
 #request = info sur la méthode de requète (get ou post) et autres
@@ -44,7 +51,7 @@ def optimize(request):
 
 def pgportfolio(request, query=None):
     the_name = request.GET['your_name']
-
+    main()
     best = "EVERYTHING IN BITCOIN"
     html = "<html><body>Best portfolio: %s</body></html>" % the_name
     return HttpResponse(html)

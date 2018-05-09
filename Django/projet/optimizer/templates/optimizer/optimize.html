@@ -69,8 +69,22 @@
         <a class="btn btn-primary" href="#" id="Neural Network">Neural Network</a>
       </form-->
     <form action="/optimizer/pgportfolio.html" method="get">
-      <label for="your_name">Your name: </label>
-      <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+      <label for="your_name">Name of portfolio: </label>
+      <input id="your_name" type="text" name="your_name"><br>
+      Initial Investment (BTC): <input type="text"><br>
+      <h3>Risk</h3>
+      <select id="risk" size="3">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select><br>
+
+      <h3>Risk</h3>
+      <select id="algorithm" size="3">
+        <option>Markowitz</option>
+        <option>Deep RL</option>
+        <option>bcrp</option>
+      </select><br>
       <input type="submit" value="OK">
     </form>
     <!-- /.content-wrapper-->
