@@ -50,7 +50,9 @@ def optimize(request):
     return render(request, 'optimizer/optimize.html', locals())
 
 def pgportfolio(request, query=None):
-    the_name = request.GET['your_name']
+    name = request.GET['name']
+    #risk = request.GET['risk']
+    capital = request.GET['capital']
     omega = main()
     for i in range (len(omega)):
         if (omega[i] <= 0.05):
