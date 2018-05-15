@@ -6,8 +6,8 @@ from django.contrib.auth.views import login
 from os import path
 import sys
 
-sys.path.append(path.abspath('../../'))
 sys.path.append(path.abspath('../../PGPortfolio'))
+#sys.path.append(path.abspath('../../PGPortfolio'))
 from PGPortfolio.main import *
 
 
