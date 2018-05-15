@@ -51,7 +51,16 @@ def optimize(request):
 
 def pgportfolio(request, query=None):
     the_name = request.GET['your_name']
-    main()
-    best = "EVERYTHING IN BITCOIN"
-    html = "<html><body>Best portfolio: %s</body></html>" % the_name
-    return HttpResponse(html)
+    omega = main()
+    for i in range (len(omega)):
+        if (omega[i] <= 0.05):
+            omega[i] = 0 #delete useless coins
+        else:
+            omega[i] = int(omega[i] * 1000)
+    omega = (100/sum(omega)) * omega #normalize and transform in percent
+    coins = ['USDT', 'ETH', 'XRP', 'STR', 'XMR', 'LTC', 'BCH', 'DASH', 'BTS', 'XEM', 'ETC']
+    dic = dict(zip(coins, omega))
+    weights = sorted(dic.items(), key=lambda x: x[1], reverse=True)
+    for i in range (len(omega)):
+        omega[i] = (int(omega[i])) #delete useless digits and make int
+    return render(request, 'optimizer/result.html', locals())

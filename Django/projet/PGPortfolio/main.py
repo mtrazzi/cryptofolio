@@ -153,5 +153,7 @@ def main():
     print("Omega:", new_omega)
     print("Computation time:", time.time()-now)
 
+    return new_omega
+
 if __name__ == "__main__":
     main()
