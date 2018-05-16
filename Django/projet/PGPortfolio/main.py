@@ -96,7 +96,7 @@ def predict_portfolio(algo, investment, chosen_coins, date, old_omega):
     end = int(date - (date%period)) # converts into closest round time, minus 5 min if too close from it
 
     if algo.isdigit():
-        net_dir = "./train_package/" + algo + "/netfile"
+        net_dir = "/home/michael/aaaaa/Django/projet/PGPortfolio/train_package/" + algo + "/netfile"
         start = end - volume*period # setting start to 30 periods before end
         start = int(start - (start%period))
     elif algo in ['bcrp', 'best']:
@@ -134,7 +134,7 @@ def predict_portfolio(algo, investment, chosen_coins, date, old_omega):
     round_omega = np.around(omega, decimals=1)
     # Compute omega in term of currencies, not percentage
     portfolio = investment * round_omega * v
-    return portfolio
+    return portfolio, round_omega
 
 
 # Computes value of a portfolio, given either in percentage or number of coins at any given date
@@ -171,7 +171,7 @@ def main():
     # The list of all implemented valid_algorithms, '8' is a trained NN (example)
     print("Available algorithms:", ['8'] + valid_algorithms)
     # A fake choice of algorithm, should be chosen by the user
-    algo = 'pamr'
+    algo = '8'
     # A fake portfolio, should be the cryptocurrencies chosen by the user
     chosen_coins = ['reversed_USDT', 'ETH', 'XRP', 'STR', 'XMR', 'LTC', 'BCH', 'DASH', 'BTS', 'XEM', 'ETC']
     # A fake old omega (portfolio repartition), again should be previous one or chosen by user
@@ -185,10 +185,10 @@ def main():
     # Set commission, 0.0025 if Poloniex
     commission_rate = 0.0025
     # Compute value and print
-    investment = compute_value(portfolio=new_omega, chosen_coins=chosen_coins, investment=investment, date=now)
-    print("New omega is:", new_omega, "with value:", investment)
+    investment = compute_value(portfolio=new_omega[0], chosen_coins=chosen_coins, investment=investment, date=now)
+    print("New omega is:", new_omega[0], "with value:", investment)
     print("Computation time:", time.time()-now)
-    
+
     return new_omega
 
 if __name__ == "__main__":

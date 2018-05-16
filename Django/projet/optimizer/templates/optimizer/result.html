@@ -64,6 +64,9 @@
 
                 <div class="col-sm-4 text-center my-auto">
 
+                <!-- TO DO: METTRE LES POIDS DANS LE CAMEMBERT -->
+
+                <!--
                 {% for key, value in dic.items %}
                 {% if value >= 20 %}
                 <hr>
@@ -97,6 +100,26 @@
                 {% endif %}
                 {% endfor %}
                 <hr>
+
+                -->
+
+                {% for key, value in dic2.items %}
+                {% if value > 0 %}
+                <hr>
+                <div class="h4 mb-0 text-success">{{key}} {{value}}</div>
+                {% endif %}
+
+                <!--div class="small text-muted">{% widthratio value 100 capital %} BTC</div-->
+                {% endfor %}
+
+                {% for key, value in dic2.items %}
+                {% if value == 0 %}
+                <hr>
+                <div class="h4 mb-0 text-dark">{{key}} {{value}}</div>
+                {% endif %}
+
+                <!--div class="small text-muted">{% widthratio value 100 capital %} BTC</div-->
+                {% endfor %}
 
               </div>
             </div>
