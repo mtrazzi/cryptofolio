@@ -182,10 +182,10 @@ def main():
     ##### THIS IS THE VERY IMPORTANT FUNCTION #####
     new_omega = predict_portfolio(algo=algo, investment=investment, chosen_coins=chosen_coins, date=int(now), old_omega=omega)
     ###############################################
+    # Set commission, 0.0025 if Poloniex
+    commission_rate = 0.0025
     # Compute value and print
-    ##### IMPORTANT FUNCTION TO COMPUTE PORTFOLIO VALUE #####
     investment = compute_value(portfolio=new_omega, chosen_coins=chosen_coins, investment=investment, date=now)
-    #########################################################
     print("New omega is:", new_omega, "with value:", investment)
     print("Computation time:", time.time()-now)
     
