@@ -76,4 +76,9 @@ def pgportfolio(request, query=None):
     weights = sorted(dic.items(), key=lambda x: x[1], reverse=True)
     for i in range (len(omega)):
         omega[i] = (int(omega[i])) #delete useless digits and make int
+    #request.session["portfolio"] = dic2
+    #request.session["portfolio_name"] = name
     return render(request, 'optimizer/result.html', locals())
+
+def portfolios(request, query=None):
+    return render(request, 'optimizer/portfolios.html', locals())

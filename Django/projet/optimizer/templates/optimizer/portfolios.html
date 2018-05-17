@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Portfolio Optimization</title>
+  <title>Saved Portfolios</title>
   <!-- Bootstrap core CSS-->
   <link href={% static 'bootstrap/vendor/bootstrap/css/bootstrap.min.css' %} rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -21,6 +21,8 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="https://michaeltrazzi.wixsite.com/cryptoptimisation">Cryptofolio</a>
@@ -56,43 +58,29 @@
       </li>
     </ul>
   </nav>
+
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Example Bar Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-bar-chart"></i>Your Portfolio</div>
+            <div class="card-body">
+              <div class="row">
+
+                <div class="col-sm-4 text-center my-auto">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- /.container-fluid-->
-    <div class="content-wrapper">
-      <div class="container-fluid">
-        <!-- Breadcrumbs-->
-
-        <!--form>
-          Initial Investment (BTC): <input type="text"><br>
-          <h3>Risk</h3>
-          <select id="risk" size="3">
-            <option>Low</option>
-            <option>Medium</option>
-            <option>High</option>
-          </select>
-
-        <h3>Algorithm</h3>
-        <a class="btn btn-primary" href="#" id="Markowitz">Markowitz</a>
-        <a class="btn btn-primary" href="#" id="Neural Network">Neural Network</a>
-      </form-->
-    <form action="/optimizer/pgportfolio.html" method="get">
-      <label for="your_name">Name of portfolio: </label>
-      <input id="name" type="text" name="name"><br>
-      Initial Investment (BTC): <input id="capital" type="text" name="capital"><br>
-      <!--h3>Risk</h3>
-      <select id="risk" size="3">
-        <option>Low</option>
-        <option>Medium</option>
-        <option>High</option>
-      </select><br-->
-
-      <h3>Algorithm</h3>
-      <select id="algorithm" name="algorithm" size="3">
-        {% for algo in algorithms %}
-        <option>{{algo}}</option>
-        {% endfor %}
-      </select><br>
-      <input type="submit" value="OK">
-    </form>
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
@@ -138,7 +126,6 @@
     <script src={% static 'bootstrap/js/sb-admin-datatables.min.js' %}></script>
     <script src={% static 'bootstrap/js/sb-admin-charts.min.js' %}></script>
   </div>
-</div>
 </body>
 
 </html>

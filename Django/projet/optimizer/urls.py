@@ -10,5 +10,6 @@ urlpatterns = [
     path('login.html', views.login),
     path('optimize.html', views.optimize),
     path('pgportfolio.html', views.pgportfolio),
+    path('portfolios.html', views.portfolios),
     url(r'^portfolio/(?P<query>\w+)$', views.pgportfolio),
 ]
