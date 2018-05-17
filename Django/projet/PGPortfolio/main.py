@@ -96,7 +96,9 @@ def predict_portfolio(algo, investment, chosen_coins, date, old_omega):
     end = int(date - (date%period)) # converts into closest round time, minus 5 min if too close from it
 
     if algo.isdigit():
-        net_dir = "/home/michael/aaaaa/Django/projet/PGPortfolio/train_package/" + algo + "/netfile"
+        # Use absolute path, to change to your configuration
+        train_package_path = "/home/michael/cryptofolio/Django/projet/PGPortfolio/train_package/"
+        net_dir = train_package_path + algo + "/netfile"
         start = end - volume*period # setting start to 30 periods before end
         start = int(start - (start%period))
     elif algo in ['bcrp', 'best']:
