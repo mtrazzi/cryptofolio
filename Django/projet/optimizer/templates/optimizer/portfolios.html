@@ -63,16 +63,23 @@
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
+      {% for name, portf in dic.items %}
+
       <div class="row">
         <div class="col-lg-8">
           <!-- Example Bar Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-bar-chart"></i>Your Portfolio</div>
+              <i class="fa fa-camera-retro"></i> {{name}}</div>
             <div class="card-body">
               <div class="row">
 
                 <div class="col-sm-4 text-center my-auto">
+                  {% for key, value in portf.items %}
+                  <hr>
+                  <div class="h4 mb-0 text-success">{{key}} {{value}}</div>
+
+                  {% endfor %}
 
               </div>
             </div>
@@ -80,6 +87,7 @@
         </div>
       </div>
     </div>
+    {% endfor %}
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">

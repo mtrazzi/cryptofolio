@@ -5,6 +5,9 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.views import login
 from os import path
 import sys
+import pandas as pd
+import os
+import csv
 
 sys.path.append(path.abspath('PGPortfolio'))
 #sys.path.append(path.abspath('../../PGPortfolio'))
@@ -76,9 +79,38 @@ def pgportfolio(request, query=None):
     weights = sorted(dic.items(), key=lambda x: x[1], reverse=True)
     for i in range (len(omega)):
         omega[i] = (int(omega[i])) #delete useless digits and make int
-    #request.session["portfolio"] = dic2
-    #request.session["portfolio_name"] = name
+    request.session["portfolio"] = dic2
+    request.session["portfolio_name"] = name
     return render(request, 'optimizer/result.html', locals())
 
 def portfolios(request, query=None):
+    print("hello")
+    with open('portfolios.csv', 'r+') as f:
+        if ('portfolio_name' in request.session):
+            l = [0]*12 #list with our portfolio to save
+            l[0] = request.user.username
+            l[1] = request.session["portfolio_name"]
+            l[2:12] = request.session["portfolio"].values()
+            wr = csv.writer(f)
+            wr.writerow(l)
+            """
+            # next lines deal with the fact we want unique portfolios
+            uniqlines = set(f.readlines())
+            f.truncate(0)
+            with open('portfolios.csv', 'w') as rmdup:
+                rmdup.writelines(set(uniqlines))
+            """
+        reader = csv.reader(f)
+        portfolios_list = list(reader)
+    #print(portfolios_list)
+    dic = {}
+    dic_keys = ['BTC','USDT','ETH','XRP','STR','XMR','LTC','BCH','DASH','BTS','XEM','ETC']
+    for row in portfolios_list:
+        if (row[0] == request.user.username):
+            dic[row[1]] = {}
+            d = dict(zip(dic_keys, np.array(row[2:14])))
+            for key, value in d.items():
+                if float(value) > 0.0:
+                    dic[row[1]][key] = value
+    print(dic)
     return render(request, 'optimizer/portfolios.html', locals())

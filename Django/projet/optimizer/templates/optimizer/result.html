@@ -41,6 +41,12 @@
             <span class="nav-link-text">Optimize</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Saved Portfolios">
+          <a class="nav-link" href="portfolios.html">
+            <i class="fa fa-fw fa-camera-retro"></i>
+            <span class="nav-link-text">Saved Portfolios</span>
+          </a>
+        </li>
       </ul>
     </div>
     <ul class="navbar-nav ml-auto">
@@ -64,44 +70,9 @@
 
                 <div class="col-sm-4 text-center my-auto">
 
-                <!-- TO DO: METTRE LES POIDS DANS LE CAMEMBERT -->
-
-                <!--
-                {% for key, value in dic.items %}
-                {% if value >= 20 %}
-                <hr>
-                <div class="h4 mb-0 text-primary">{{key}} {{value}}%</div>
-                <div class="small text-muted">{% widthratio value 100 capital %} BTC</div>
-                {% endif %}
-                {% endfor %}
-
-                {% for key, value in dic.items %}
-                {% if value >= 5 and value < 20 %}
-                <hr>
-                <div class="h4 mb-0 text-warning">{{key}} {{value}}%</div>
-                <div class="small text-muted">{% widthratio value 100 capital %} BTC</div>
-
-                {% endif %}
-                {% endfor %}
-
-                {% for key, value in dic.items %}
-                {% if value > 0 and value < 5 %}
-                <hr>
-                <div class="h4 mb-0 text-success">{{key}} {{value}}%</div>
-                <div class="small text-muted">{% widthratio value 100 capital %} BTC</div>
-                {% endif %}
-                {% endfor %}
-
-                {% for key, value in dic.items %}
-                {% if value == 0 %}
-                <hr>
-                <div class="h4 mb-0 text-dark">{{key}} {{value}}%</div>
-                <div class="small text-muted">{% widthratio value 100 capital %} BTC</div>
-                {% endif %}
-                {% endfor %}
-                <hr>
-
-                -->
+                  <form action="/optimizer/portfolios.html" method="get">
+                    <button id="saved" type="submit" name="saved" value="yes">Save Portfolio</button>
+                  </form>
 
                 {% for key, value in dic2.items %}
                 {% if value > 0 %}
