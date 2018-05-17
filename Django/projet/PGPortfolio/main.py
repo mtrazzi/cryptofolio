@@ -83,7 +83,7 @@ def predict_portfolio(algo, investment, chosen_coins, date, old_omega):
     if algo.isdigit():
         config = load_config(algo)
     else:
-        with open("pgportfolio/net_config.json") as file: config = json.load(file)
+        with open("/home/michael/cryptofolio/Django/projet/PGPortfolio/pgportfolio/net_config.json") as file: config = json.load(file)
 
     input_config = config["input"]
     feature_number = input_config["feature_number"]
@@ -163,7 +163,8 @@ def compute_value(portfolio, chosen_coins, investment, date):
     res = np.dot(portfolio, v)
     return np.around(res, decimals=10)
 
-def main():
+def process(algo="8"):
+    print("using algo: ", algo)
     # Chose time (should be "now")
     now = time.time()
     # A way to get a list all available coins (e.g. to let the user chose his coins)
@@ -172,8 +173,6 @@ def main():
     print("Available coins:", all_coins)
     # The list of all implemented valid_algorithms, '8' is a trained NN (example)
     print("Available algorithms:", ['8'] + valid_algorithms)
-    # A fake choice of algorithm, should be chosen by the user
-    algo = '8'
     # A fake portfolio, should be the cryptocurrencies chosen by the user
     chosen_coins = ['reversed_USDT', 'ETH', 'XRP', 'STR', 'XMR', 'LTC', 'BCH', 'DASH', 'BTS', 'XEM', 'ETC']
     # A fake old omega (portfolio repartition), again should be previous one or chosen by user
@@ -192,6 +191,9 @@ def main():
     print("Computation time:", time.time()-now)
 
     return new_omega
+
+def main():
+    process('bcrp')
 
 if __name__ == "__main__":
     main()

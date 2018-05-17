@@ -77,14 +77,14 @@
         <option>Low</option>
         <option>Medium</option>
         <option>High</option>
-      </select><br>
-
-      <h3>Risk</h3>
-      <select id="algorithm" size="3">
-        <option>Markowitz</option>
-        <option>Deep RL</option>
-        <option>bcrp</option>
       </select><br-->
+
+      <h3>Algorithm</h3>
+      <select id="algorithm" name="algorithm" size="3">
+        {% for algo in algorithms %}
+        <option>{{algo}}</option>
+        {% endfor %}
+      </select><br>
       <input type="submit" value="OK">
     </form>
     <!-- /.content-wrapper-->

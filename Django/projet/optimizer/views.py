@@ -47,10 +47,17 @@ def login(request):
     return render(request, 'optimizer/login.html', locals())
 
 def optimize(request):
+    algorithms = ['Neural Network', 'anticor1', 'bcrp', 'best', 'bk', 'cornk', 'crp', 'cwmr_std', 'eg', 'm0', 'olmar', 'olmar2', 'pamr', 'rmr', 'sp', 'ubah', 'up', 'wmamr']
+    number_algorithms = len(algorithms)
     return render(request, 'optimizer/optimize.html', locals())
 
 def pgportfolio(request, query=None):
     name = request.GET['name']
+    algo = request.GET['algorithm']
+    labels = ['Neural Network', 'anticor1', 'bcrp', 'best', 'bk', 'cornk', 'crp', 'cwmr_std', 'eg', 'm0', 'olmar', 'olmar2', 'pamr', 'rmr', 'sp', 'ubah', 'up', 'wmamr']
+    real_name = ['8', 'anticor1', 'bcrp', 'best', 'bk', 'cornk', 'crp', 'cwmr_std', 'eg', 'm0', 'olmar', 'olmar2', 'pamr', 'rmr', 'sp', 'ubah', 'up', 'wmamr']
+    dic3 = dict(zip(labels, real_name))
+    algo_to_use = dic3[algo]
     #risk = request.GET['risk']
     capital = request.GET['capital']
     """
@@ -62,7 +69,7 @@ def pgportfolio(request, query=None):
             omega[i] = int(omega[i] * 1000)
     omega = (100/sum(omega)) * omega #normalize and transform in percent
     """
-    portfolio, omega = main()
+    portfolio, omega = process(algo_to_use)
     coins = ['BTC', 'USDT', 'ETH', 'XRP', 'STR', 'XMR', 'LTC', 'BCH', 'DASH', 'BTS', 'XEM', 'ETC']
     dic = dict(zip(coins, omega))
     dic2 = dict(zip(coins, portfolio))
