@@ -86,7 +86,7 @@ def pgportfolio(request, query=None):
 def portfolios(request, query=None):
     print("hello")
     f = open('portfolios.csv', 'a+')
-    if ('portfolio_name' in request.session):
+    if ('portfolio_name' in request.session and not "delete" in request.GET and "saved" in request.GET):
         # Saving portfolio
         print("saving")
         l = [0]*12 #list with our portfolio to save
@@ -97,7 +97,7 @@ def portfolios(request, query=None):
         #wr = csv.writer(f)
         #wr.writerow(l)
         str_list = [str(x) for x in l]
-        #print(",".join(str_list), file=f)
+        print(",".join(str_list), file=f)
     f.close()
 
     f2 = open('portfolios.csv', 'r')
@@ -111,7 +111,7 @@ def portfolios(request, query=None):
     truc = tuple(reader)
     print("truc", truc)
     print(portfolios_list)
-    """
+
     # Deleting portfolio from get button
     if ("delete" in request.GET):
         print("deleting")
@@ -124,11 +124,14 @@ def portfolios(request, query=None):
         for index in reversed(to_del):
             del portfolios_list[index]
     print(portfolios_list)
-    os.system("sort -u -t, -k1,2 portfolios.csv &> unique.csv")
+    #os.system("sort -u -t, -k1,2 portfolios.csv &> unique.csv")
     #os.system("rm portfolios.csv")
-    os.system("cp unique.csv portfolios.csv")
-    """
+    #os.system("cp unique.csv portfolios.csv
     # Creating dictionary to pass to views
+    with open("portfolios.csv", 'w') as f:
+        f.truncate(0)
+        for row in portfolios_list:
+            print(",".join(row), file=f)
     dic = {}
     dic_keys = ['BTC','USDT','ETH','XRP','STR','XMR','LTC','BCH','DASH','BTS','XEM','ETC']
     for row in portfolios_list:
