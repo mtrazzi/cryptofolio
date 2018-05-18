@@ -81,6 +81,7 @@ def pgportfolio(request, query=None):
         omega[i] = (int(omega[i])) #delete useless digits and make int
     request.session["portfolio"] = dic2
     request.session["portfolio_name"] = name
+    request.session["chart"] = dic
     return render(request, 'optimizer/result.html', locals())
 
 def portfolios(request, query=None):
@@ -141,5 +142,7 @@ def portfolios(request, query=None):
             for key, value in d.items():
                 if float(value) > 0.0:
                     dic[row[1]][key] = value
+    dic3 = {}
+    dic3 = request.session["chart"]
     print(dic)
     return render(request, 'optimizer/portfolios.html', locals())

@@ -167,7 +167,7 @@ def compute_value(portfolio, chosen_coins, investment, date):
 def process(algo="8"):
     if (algo=="8"):
         portfolio = [random.random() for i in (range(12))]
-        return portfolio, [0., 0., 0., 0., 0., 0., 0., 0., 0., 1., 0., 0.]
+        return portfolio, [0., 0.2, 0., 0.3, 0., 0.4, 0., 0.1, 0., 0., 0., 0.]
     print("using algo: ", algo)
     # Chose time (should be "now")
     now = time.time()
