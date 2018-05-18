@@ -85,24 +85,50 @@ def pgportfolio(request, query=None):
 
 def portfolios(request, query=None):
     print("hello")
-    with open('portfolios.csv', 'r+') as f:
-        if ('portfolio_name' in request.session):
-            l = [0]*12 #list with our portfolio to save
-            l[0] = request.user.username
-            l[1] = request.session["portfolio_name"]
-            l[2:12] = request.session["portfolio"].values()
-            wr = csv.writer(f)
-            wr.writerow(l)
-            """
-            # next lines deal with the fact we want unique portfolios
-            uniqlines = set(f.readlines())
-            f.truncate(0)
-            with open('portfolios.csv', 'w') as rmdup:
-                rmdup.writelines(set(uniqlines))
-            """
-        reader = csv.reader(f)
-        portfolios_list = list(reader)
-    #print(portfolios_list)
+    f = open('portfolios.csv', 'a+')
+    if ('portfolio_name' in request.session):
+        # Saving portfolio
+        print("saving")
+        l = [0]*12 #list with our portfolio to save
+        l[0] = request.user.username
+        l[1] = request.session["portfolio_name"]
+        l[2:12] = request.session["portfolio"].values()
+        print("to save: ", l)
+        #wr = csv.writer(f)
+        #wr.writerow(l)
+        str_list = [str(x) for x in l]
+        #print(",".join(str_list), file=f)
+    f.close()
+
+    f2 = open('portfolios.csv', 'r')
+    reader = csv.reader(f2)
+    myset = set()
+    for row in reader:
+        print("type", type(row))
+        myset.add(tuple(row))
+    portfolios_list = [list(x) for x in myset]
+    print("type", type(reader))
+    truc = tuple(reader)
+    print("truc", truc)
+    print(portfolios_list)
+    """
+    # Deleting portfolio from get button
+    if ("delete" in request.GET):
+        print("deleting")
+        name = request.GET["delete"]
+        to_del = []
+        for i in range (len(portfolios_list)):
+            if (portfolios_list[i][0] == request.user.username
+            and portfolios_list[i][1] == name):
+                to_del.append(i)
+        for index in reversed(to_del):
+            del portfolios_list[index]
+    print(portfolios_list)
+    os.system("sort -u -t, -k1,2 portfolios.csv &> unique.csv")
+    #os.system("rm portfolios.csv")
+    os.system("cp unique.csv portfolios.csv")
+    """
+    # Creating dictionary to pass to views
     dic = {}
     dic_keys = ['BTC','USDT','ETH','XRP','STR','XMR','LTC','BCH','DASH','BTS','XEM','ETC']
     for row in portfolios_list:

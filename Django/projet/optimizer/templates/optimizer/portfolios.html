@@ -76,10 +76,13 @@
 
                 <div class="col-sm-4 text-center my-auto">
                   {% for key, value in portf.items %}
-                  <hr>
-                  <div class="h4 mb-0 text-success">{{key}} {{value}}</div>
 
+                  <div class="h4 mb-0 text-success">{{key}} {{value}}</div>
+                  <hr>
                   {% endfor %}
+                  <form action="/optimizer/portfolios.html" method="get">
+                    <button id="delete" type="submit" name="delete" value="{{name}}">Delete Portfolio</button>
+                  </form>
 
               </div>
             </div>

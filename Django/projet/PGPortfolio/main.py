@@ -11,6 +11,7 @@ from pgportfolio.tools.configprocess import parse_time, load_config
 from pgportfolio.marketdata.poloniex import Poloniex
 from pgportfolio.learn.nnagent import NNAgent
 from pgportfolio.tools.data import get_type_list, get_chart_until_success
+import random
 
 # from pgportfolio.tools.trade import calculate_pv_after_commission
 global valid_algorithms
@@ -164,6 +165,9 @@ def compute_value(portfolio, chosen_coins, investment, date):
     return np.around(res, decimals=10)
 
 def process(algo="8"):
+    if (algo=="8"):
+        portfolio = [random.random() for i in (range(12))]
+        return portfolio, [0., 0., 0., 0., 0., 0., 0., 0., 0., 1., 0., 0.]
     print("using algo: ", algo)
     # Chose time (should be "now")
     now = time.time()
@@ -188,6 +192,7 @@ def process(algo="8"):
     # Compute value and print
     investment = compute_value(portfolio=new_omega[0], chosen_coins=chosen_coins, investment=investment, date=now)
     print("New omega is:", new_omega[0], "with value:", investment)
+    print("portfolio is:", new_omega[1])
     print("Computation time:", time.time()-now)
 
     return new_omega
