@@ -14,11 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls import url
 from django.urls import path, include
+from registration.backends.default.views import RegistrationView
+from registration.forms import RegistrationForm
 
 # ajouter toutes nos pages (i.e. fonctions) à cette list
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
+    #path('accounts/', include('django.contrib.auth.urls')),
+    #path('accounts/', include('optimizer.urls')),
     path('optimizer/', include('optimizer.urls')),
+    url(r'^accounts/', include('registration.backends.hmac.urls')),
 ]

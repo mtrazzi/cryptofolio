@@ -45,10 +45,6 @@ def githubrepo(request):
 
 def dashboard(request):
     return render(request, 'optimizer/dashboard.html', locals())
-
-def login(request):
-    return render(request, 'optimizer/login.html', locals())
-
 def optimize(request):
     algorithms = ['Neural Network', 'anticor1', 'bcrp', 'best', 'bk', 'cornk', 'crp', 'cwmr_std', 'eg', 'm0', 'olmar', 'olmar2', 'pamr', 'rmr', 'sp', 'ubah', 'up', 'wmamr']
     number_algorithms = len(algorithms)

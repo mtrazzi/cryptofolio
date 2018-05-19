@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'optimizer'
+    'optimizer',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -103,6 +104,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = 'yourpassword' #my gmail password
+EMAIL_HOST_USER = 'yourmail' #my gmail username
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -134,3 +142,5 @@ STATICFILES_DIRS = (
     '/home/michael/cryptofolio/Django/projet/optimizer/static',
 )
 LOGIN_REDIRECT_URL = '/optimizer/dashboard.html'
+
+ACCOUNT_ACTIVATION_DAYS = 7
