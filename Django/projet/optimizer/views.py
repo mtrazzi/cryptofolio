@@ -50,7 +50,7 @@ def dashboard(request):
     return render(request, 'optimizer/dashboard.html', locals())
 def optimize(request):
     style = return_style()
-    algorithms = ['Neural Network', 'anticor1', 'bcrp', 'best', 'bk', 'cornk', 'crp', 'cwmr_std', 'eg', 'm0', 'olmar', 'olmar2', 'pamr', 'rmr', 'sp', 'ubah', 'up', 'wmamr']
+    algorithms = ['Neural Network', 'anticor1', 'bcrp', 'best', 'bk', 'cornk', 'crp', 'cwmr_std', 'eg', 'm0', 'olmar', 'olmar2', 'pamr', 'rmr', 'sp', 'ubah', 'up', 'wmamr', 'random']
     number_algorithms = len(algorithms)
     return render(request, 'optimizer/optimize.html', locals())
 
@@ -58,8 +58,8 @@ def pgportfolio(request, query=None):
     style = return_style()
     name = request.GET['name']
     algo = request.GET['algorithm']
-    labels = ['Neural Network', 'anticor1', 'bcrp', 'best', 'bk', 'cornk', 'crp', 'cwmr_std', 'eg', 'm0', 'olmar', 'olmar2', 'pamr', 'rmr', 'sp', 'ubah', 'up', 'wmamr']
-    real_name = ['8', 'anticor1', 'bcrp', 'best', 'bk', 'cornk', 'crp', 'cwmr_std', 'eg', 'm0', 'olmar', 'olmar2', 'pamr', 'rmr', 'sp', 'ubah', 'up', 'wmamr']
+    labels = ['Neural Network', 'anticor1', 'bcrp', 'best', 'bk', 'cornk', 'crp', 'cwmr_std', 'eg', 'm0', 'olmar', 'olmar2', 'pamr', 'rmr', 'sp', 'ubah', 'up', 'wmamr','random']
+    real_name = ['8', 'anticor1', 'bcrp', 'best', 'bk', 'cornk', 'crp', 'cwmr_std', 'eg', 'm0', 'olmar', 'olmar2', 'pamr', 'rmr', 'sp', 'ubah', 'up', 'wmamr','random']
     dic3 = dict(zip(labels, real_name))
     algo_to_use = dic3[algo]
     #risk = request.GET['risk']
@@ -75,34 +75,58 @@ def pgportfolio(request, query=None):
     """
     portfolio, omega = process(algo_to_use)
     coins = ['BTC', 'USDT', 'ETH', 'XRP', 'STR', 'XMR', 'LTC', 'BCH', 'DASH', 'BTS', 'XEM', 'ETC']
-    dic = dict(zip(coins, omega))
+    dic = dict(zip(coins, np.array(omega)))
     dic2 = dict(zip(coins, portfolio))
     weights = sorted(dic.items(), key=lambda x: x[1], reverse=True)
     for i in range (len(omega)):
         omega[i] = (int(omega[i])) #delete useless digits and make int
+
+    # try to delete the 0.0 for serialize
+    for d in [dic, dic2]:
+        """
+        l = []
+        for key, value in d.items():
+            if d[key] == 0.0:
+                l.append(key)
+        for key in l:
+            del d[key]
+        """
+        for key, value in d.items():
+            d[key] = float(d[key])
+
     request.session["portfolio"] = dic2
     request.session["portfolio_name"] = name
-    request.session["chart"] = dic
+    request.session["chart"] = dic #BUG NOT SERIALIZABLE
     return render(request, 'optimizer/result.html', locals())
 
 def portfolios(request, query=None):
     style = return_style()
     print("hello")
     f = open('portfolios.csv', 'a+')
+    f_c = open('charts.csv', 'a+')
     if ('portfolio_name' in request.session and not "delete" in request.GET and "saved" in request.GET):
         # Saving portfolio
         print("saving")
         l = [0]*12 #list with our portfolio to save
+        l_c =[0]*12
         l[0] = request.user.username
         l[1] = request.session["portfolio_name"]
-        l[2:12] = request.session["portfolio"].values()
+        l[2:14] = request.session["portfolio"].values()
+
+        l_c[0] = request.user.username
+        l_c[1] = request.session["portfolio_name"]
+        l_c[2:14] = request.session["chart"].values()
         print("to save: ", l)
         #wr = csv.writer(f)
         #wr.writerow(l)
         str_list = [str(x) for x in l]
+        str_list_c = [str(x) for x in l_c]
         print(",".join(str_list), file=f)
+        print(",".join(str_list_c), file=f_c)
     f.close()
+    f_c.close()
 
+    #unique element in portfolios.csv
     f2 = open('portfolios.csv', 'r')
     reader = csv.reader(f2)
     myset = set()
@@ -114,6 +138,21 @@ def portfolios(request, query=None):
     truc = tuple(reader)
     print("truc", truc)
     print(portfolios_list)
+    f2.close()
+
+    #unique element in portfolios.csv
+    f2 = open('charts.csv', 'r')
+    reader = csv.reader(f2)
+    myset = set()
+    for row in reader:
+        print("type", type(row))
+        myset.add(tuple(row))
+    charts_list = [list(x) for x in myset]
+    print("type", type(reader))
+    truc = tuple(reader)
+    print("truc", truc)
+    print(charts_list)
+    f2.close()
 
     # Deleting portfolio from get button
     if ("delete" in request.GET):
@@ -126,15 +165,22 @@ def portfolios(request, query=None):
                 to_del.append(i)
         for index in reversed(to_del):
             del portfolios_list[index]
+            del charts_list[index]
     print(portfolios_list)
     #os.system("sort -u -t, -k1,2 portfolios.csv &> unique.csv")
     #os.system("rm portfolios.csv")
     #os.system("cp unique.csv portfolios.csv
+
     # Creating dictionary to pass to views
     with open("portfolios.csv", 'w') as f:
         f.truncate(0)
         for row in portfolios_list:
             print(",".join(row), file=f)
+    with open("charts.csv", 'w') as f:
+        f.truncate(0)
+        for row in charts_list:
+            print(",".join(row), file=f)
+
     dic = {}
     dic_keys = ['BTC','USDT','ETH','XRP','STR','XMR','LTC','BCH','DASH','BTS','XEM','ETC']
     for row in portfolios_list:
@@ -144,8 +190,18 @@ def portfolios(request, query=None):
             for key, value in d.items():
                 if float(value) > 0.0:
                     dic[row[1]][key] = value
+
     dic3 = {}
-    dic3 = request.session["chart"]
+    dic3_keys = ['BTC','USDT','ETH','XRP','STR','XMR','LTC','BCH','DASH','BTS','XEM','ETC']
+    for row in charts_list:
+        if (row[0] == request.user.username):
+            dic3[row[1]] = {}
+            d = dict(zip(dic3_keys, np.array(row[2:14])))
+            for key, value in d.items():
+                if float(value) > 0.0:
+                    dic3[row[1]][key] = value
+    #dic3 = {}
+    #dic3 = request.session["chart"]
     print(dic)
     return render(request, 'optimizer/portfolios.html', locals())
 

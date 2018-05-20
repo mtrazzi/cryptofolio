@@ -165,9 +165,9 @@ def compute_value(portfolio, chosen_coins, investment, date):
     return np.around(res, decimals=10)
 
 def process(algo="8"):
-    if (algo=="8"):
+    if (algo=="random"):
         portfolio = [random.random() for i in (range(12))]
-        return portfolio, [0., 0.2, 0., 0.3, 0., 0.4, 0., 0.1, 0., 0., 0., 0.]
+        return portfolio, (1/sum(portfolio)) * np.array(portfolio)
     print("using algo: ", algo)
     # Chose time (should be "now")
     now = time.time()
@@ -195,7 +195,7 @@ def process(algo="8"):
     print("portfolio is:", new_omega[1])
     print("Computation time:", time.time()-now)
 
-    return new_omega
+    return list(new_omega[0]), new_omega[1]
 
 def main():
     process('bcrp')

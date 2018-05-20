@@ -81,7 +81,7 @@
                   <form action="/optimizer/portfolios.html" method="get">
                     <button id="delete" type="submit" name="delete" value="{{name}}">Delete Portfolio</button>
                   </form>
-
+                  <script>drawChart();</script>
             </div>
           </div>
         </div>
@@ -93,13 +93,15 @@
           <div class="card-header">
             <i class="fa fa-pie-chart"></i> Portfolio Weights: {{name}}</div>
           <div class="card-body">
-            <div id="piechart"></div>
+            <div id="piechart{{name}}"></div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
       </div>
     </div>
+    {% endfor %}
 
+    {% for name, weights in dic3.items %}
     <!-- Javascript for PieChart-->
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -113,7 +115,7 @@
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
       ['Crypto', 'Weight'],
-      {% for key, value in dic3.items %}
+      {% for key, value in weights.items %}
       ['{{key}}', {{value}}],
       {% endfor %}
     ]);
@@ -122,7 +124,7 @@
       var options = {'title':'Portfolio: "{{name}}"', 'width':550, 'height':400};
 
       // Display the chart inside the <div> element with id="piechart"
-      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      var chart = new google.visualization.PieChart(document.getElementById('piechart{{name}}'));
       chart.draw(data, options);
     }
     </script>
