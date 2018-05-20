@@ -15,15 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url
-from django.urls import path, include
+from django.conf.urls import include
 from registration.backends.default.views import RegistrationView
 from registration.forms import RegistrationForm
+from django.views.generic.base import RedirectView
+from optimizer import views
 
 # ajouter toutes nos pages (i.e. fonctions) à cette list
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url('admin/', admin.site.urls),
     #path('accounts/', include('django.contrib.auth.urls')),
     #path('accounts/', include('optimizer.urls')),
-    path('optimizer/', include('optimizer.urls')),
+    url('optimizer/', include('optimizer.urls')),
     url(r'^accounts/', include('registration.backends.hmac.urls')),
+    url(r'^.*$', views.url_redirect, name="url-redirect")
 ]

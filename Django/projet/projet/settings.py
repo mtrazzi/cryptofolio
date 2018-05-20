@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -41,7 +42,7 @@ INSTALLED_APPS = [
     'registration',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -107,8 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'yourpassword' #my gmail password
-EMAIL_HOST_USER = 'yourmail' #my gmail username
+EMAIL_HOST_PASSWORD = '' #my gmail password
+EMAIL_HOST_USER = 'cryptoptimisation@gmail.com' #my gmail username
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
@@ -130,6 +131,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
+
 
 # For Boostrap in static directory
 # See stack overflow: https://stackoverflow.com/questions/10157059/how-can-i-use-bootstrap-with-django
@@ -139,8 +142,12 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/michael/cryptofolio/Django/projet/optimizer/static',
+    os.path.join(os.path.dirname(BASE_DIR), 'static'),
 )
 LOGIN_REDIRECT_URL = '/optimizer/dashboard.html'
 
 ACCOUNT_ACTIVATION_DAYS = 7
+
+# Configure Django App for Heroku (at the very bottom)
+import django_heroku
+django_heroku.settings(locals())
