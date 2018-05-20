@@ -47,14 +47,14 @@
             <span class="nav-link-text">Saved Portfolios</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Saved Portfolios">
+          <a class="nav-link" href="/accounts/login/">
+            <i class="fa fa-fw fa-sign-out"></i>
+            <span class="nav-link-text">Logout</span>
+          </a>
+        </li>
       </ul>
     </div>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="modal" href="/accounts/login/">
-          <i class="fa fa-fw fa-sign-out"></i>Logout</a>
-      </li>
-    </ul>
   </nav>
     <!-- /.container-fluid-->
     <div class="content-wrapper">
@@ -137,6 +137,10 @@
     <!-- Custom scripts for this page-->
     <script src={% static 'bootstrap/js/sb-admin-datatables.min.js' %}></script>
     <script src={% static 'bootstrap/js/sb-admin-charts.min.js' %}></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
   </div>
 </div>
 </body>
