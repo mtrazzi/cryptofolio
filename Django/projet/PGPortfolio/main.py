@@ -84,7 +84,9 @@ def predict_portfolio(algo, investment, chosen_coins, date, old_omega):
     if algo.isdigit():
         config = load_config(algo)
     else:
-        with open("/home/michael/cryptofolio/Django/projet/PGPortfolio/pgportfolio/net_config.json") as file: config = json.load(file)
+        base_dir = os.path.abspath(os.path.dirname(__file__))
+        file_path =  os.path.join(os.path.dirname(base_dir), 'PGPortfolio/pgportfolio/net_config.json')
+        with open(file_path) as file: config = json.load(file)
 
     input_config = config["input"]
     feature_number = input_config["feature_number"]
@@ -98,8 +100,10 @@ def predict_portfolio(algo, investment, chosen_coins, date, old_omega):
 
     if algo.isdigit():
         # Use absolute path, to change to your configuration
-        train_package_path = "/home/michael/cryptofolio/Django/projet/PGPortfolio/train_package/"
-        net_dir = train_package_path + algo + "/netfile"
+        base_dir = os.path.abspath(os.path.dirname(__file__))
+        net_dir = os.path.join(os.path.dirname(base_dir), 'PGPortfolio/train_package/' + algo + '/netfile')
+        #train_package_path = "/home/michael/cryptofolio/Django/projet/PGPortfolio/train_package/"
+        #net_dir = train_package_path + algo + "/netfile"
         start = end - volume*period # setting start to 30 periods before end
         start = int(start - (start%period))
     elif algo in ['bcrp', 'best']:
