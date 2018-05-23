@@ -1,34 +1,25 @@
-# Cryptofolio
+# Cryptofolio: an optimization platform for cryptocurrencies portfolios.
 
-[Landing Page](https://michaeltrazzi.wixsite.com/cryptoptimisation)
+Authors: Julien Denes ([jdenes](https://github.com/jdenes)), Michael Trazzi ([mtrazzi](https://github.com/mtrazzi))
+[Visit the landing page of the platform](https://michaeltrazzi.wixsite.com/cryptoptimisation)
 
-Master's Project : create a optimized portfolio for cryptocurrencies using Markowitz's Modern Portfolio Theory
+This repository is the final result of project "Cryptofolio", an applied project for Université Pierre et Marie Curie (UPMC) Master's Degree in Computer Science. More information [here](http://androide.lip6.fr/?q=node/384) (in french).
+The overall goal of the platform is to provide cryptocurrencies investor with a decision aid on how to create a diversified portfolio to maximize returns and minimize risks.
+Several optimization algorithms are proposed, from traditional high-frequency live trading to state-of-the-art Convolutional Neural Network (CNN).
 
-More information [here](http://androide.lip6.fr/?q=node/384) (french)
-## Literature
+## Structure of the repository:
+* [Django](Django): Source code of our platform, implemented with Python Django. Part of the code dedicated to portfolio optimization is [here](Django/projet/PGPortfolio).
+* [Literature](Literature): most of the literature we based our theoretical choices on is available on this folder.
+* [Report](Rapport): Summary of the study of the algorithms and development steps, in particular: [the final report](Rapport/Rapport.pdf) and [its code](Rapport/Rapport.tex) files (french).
+* [Other material](Other material): various deprecated material used during the development of the platform, including: tryouts with R Shiny, unused datasets, figures and notres from tryouts with algorithms.
 
-[Collection](Literature) of the papers we encountered
+## Access the platform
+The landing page of the platform is available [here](https://michaeltrazzi.wixsite.com/cryptoptimisation) and the application [here](https://cryptoptimize.herokuapp.com/).
 
-## Rapport
+## Acknowledgement and sources
+This project would not have been finished without using the codes from the following open source projects:
+* [Original source code (PGPortfolio)](https://github.com/ZhengyaoJiang/PGPortfolio)
+* [Online Portfolio Selection toolbox](https://github.com/OLPS/OLPS)
 
-Summary of the main articles : [pdf](Rapport/Rapport.pdf) and [tex](Rapport/Rapport.tex) files
-
-## Shiny Apps
-
-### Get the market cap of cryptocurrencies
-
-[Code](market_cap), [webapp](https://cryptofolio.shinyapps.io/market_cap/)
-
-### Get the evolution of the Bitcoin price
-
-[Code](bitcoin_price), [webapp](https://cryptofolio.shinyapps.io/my_app/)
-
-## Sentiment-analysis
-
-Predict what Twitter thinks of a particular cryptocurrency using Sentiment-analysis: [here](sentiment_analysis)
-
-Some setup needs to be done with the Google Cloud API
-
-## A fully working NN for crypto-currencies trading
-
-[Right here](https://github.com/ZhengyaoJiang/PGPortfolio)
+## License
+This software is available under a [GNU General Public License](LICENSE).
