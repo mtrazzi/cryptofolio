@@ -1,4 +1,7 @@
-This code is part of the implementation of the project "Cryptofolio" by Julien Denes and Michael Trazzi.
+# PGPortfolio: core code of "Cryptofolio" project's trading algorithms.
+
+This code is part of the implementation of the project "Cryptofolio" by Julien Denes ([jdenes](https://github.com/jdenes)) and Michael Trazzi ([mtrazzi](https://github.com/mtrazzi)).
+
 It is largely based on the original implementation of the paper "A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem" ([arXiv:1706.10059](https://arxiv.org/abs/1706.10059)).
 
 * The deep reinforcement learning framework is the core part of the library.
@@ -8,7 +11,7 @@ Result summary and parallel training are allowed for better hyper-parameters opt
 * The financial-model-based portfolio management algorithms are also embedded in this library for comparision purpose, whose implementation is based on Li and Hoi's toolkit [OLPS](https://github.com/OLPS/OLPS).
 
 ## Platform Support
-Python 3.5+ in windows and Python 2.7+/3.5+ in linux are supported.
+Python 3.5+ in Windows and Python 2.7+/3.5+ in linux are supported.
 
 ## Dependencies
 Install Dependencies via `pip install -r requirements.txt`
@@ -26,8 +29,10 @@ This project would not have been finished without using the codes from the follo
 * [Original source (PGPortfolio)](https://github.com/ZhengyaoJiang/PGPortfolio)
 * [Online Portfolio Selection toolbox](https://github.com/OLPS/OLPS)
 
-## Risk Disclaimer (for Live-trading)
+## License
+This software is available under a GNU General Public License (see root of the project), following the use of [PGPortfolio's source code](https://github.com/ZhengyaoJiang/PGPortfolio), available under the same license.
 
+## Risk Disclaimer (for Live-trading)
 There is always risk of loss in trading. **All trading strategies are used at your own risk**
 
 *The volumes of many cryptocurrency markets are still low. Market impact and slippage may badly affect the results during live trading.*
