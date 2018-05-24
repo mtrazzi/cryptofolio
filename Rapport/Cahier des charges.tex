@@ -13,7 +13,7 @@
 \addbibresource{biblio.bib}
 \bibliography{biblio}
 
-\title{Projet Cryptoptimisation : cahier des charges}
+\title{Projet Cryptofolio : cahier des charges}
 \author[]{Julien Denes, Michaël Trazzi}
 \affil[]{Faculté des Sciences et Ingénierie -- Sorbonne Université}
 \date{Février 2018}
@@ -87,7 +87,7 @@ Finalement, la dernière étape de ce projet consistera en l'implémentation du 
 
 \subsubsection{Fonctionnalités et caractéristiques}
 
-Comme expliqué dans la section 1.2, on attends du produit qu'il propose à l'utilisateur un ensemble d'outils d'aide à la décision pour l'investissement dans les cryptomonnaies. Celle-ci prendra la forme d'une interface web, qui sera développée en R Shiny. Le langage R se prête en effet très bien au traitement des données, et son package Shiny permet un affichage élégant sous forme d'application web. De plus, un certain nombre de fonctionnalités énumérées ci-dessous nécessitent de récupérer en temps réel des données sur les marchés des cryptomonnaies. R Shiny s'y prête bien, notamment grâce à une large offre de packages qui offrent un "habillage" d'API publiques. On citera par exemple \texttt{coinmarketcapr} qui, en plus d'offrir les données de Coinmarketcap sous forme directement exploitable, dispose de fonctions d'analyses basiques pré-construites.\footnote{Source : https://datascienceplus.com/analysing-cryptocurrency-market-in-r/} 
+Comme expliqué dans la section 1.2, on attends du produit qu'il propose à l'utilisateur un ensemble d'outils d'aide à la décision pour l'investissement dans les cryptomonnaies. Celle-ci prendra la forme d'une interface web, qui sera développée avec Python Django. Le langage Python se prête en effet très bien au traitement des données, et son framework Django permet un affichage élégant sous forme d'application web. De plus, un certain nombre de fonctionnalités énumérées ci-dessous nécessitent de récupérer en temps réel des données sur les marchés des cryptomonnaies. Python s'y prête bien, notamment grâce à de nombreuses d'API publiques qui supportent ses requêtes. C'est par exemple le cas de Poloniex.com.\footnote{\url{https://poloniex.com/support/api/}} 
 
 Les fonctionnalités que cette plateforme offrira seront de quatre ordres :
 \begin{enumerate}
