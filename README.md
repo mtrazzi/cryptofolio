@@ -2,9 +2,7 @@
 
 **Authors:** Julien Denes ([jdenes](https://github.com/jdenes)), Michael Trazzi ([mtrazzi](https://github.com/mtrazzi))
 
-Visit the landing page of the platform [here](https://michaeltrazzi.wixsite.com/cryptoptimisation)!
-
-<hr\>
+**Visit the landing page of the platform [here](https://michaeltrazzi.wixsite.com/cryptoptimisation)!**
 
 This repository is the final result of project "Cryptofolio", an applied project for Université Pierre et Marie Curie (UPMC) Master's Degree in Computer Science. More information [here](http://androide.lip6.fr/?q=node/384) (in french).
 
@@ -14,7 +12,7 @@ Several optimization algorithms are proposed, from traditional high-frequency li
 ## Structure of the repository
 * [Django](Django): Source code of our platform, implemented with Python Django. Part of the code dedicated to portfolio optimization is [here](Django/projet/PGPortfolio).
 * [Literature](Literature): most of the literature we based our theoretical choices on is available on this folder.
-* [Report](Rapport): Summary of the study of the algorithms and development steps, in particular [the final report](Rapport/Rapport.pdf) and [the specification (cahier des charges)]("Rapport/Cahier des charges.pdf"), both in french.
+* [Report](Rapport): Summary of the study of the algorithms and development steps, in particular [the final report](Rapport/Rapport.pdf) and the specifications (cahier des charges)] (in french).
 * [Other material](Material): various deprecated material used during the development of the platform, including: tryouts with R Shiny, unused datasets, figures and notres from tryouts with algorithms.
 
 ## Access the platform
