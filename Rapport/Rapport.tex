@@ -19,6 +19,8 @@
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \newcommand{\Var}{\mathrm{Var}}
 \DeclareMathOperator*{\argmax}{arg\,max}
+\usepackage{forest}
+
 
 \begin{document}
 
@@ -584,11 +586,6 @@ La Figure \ref{fig:results} nous montre également la forme du résultat. Elle p
 \end{center}
 \end{figure}
 
-\subsubsection{Enregistrement des portefeuilles}
-\label{sec:developpement_pages_save}
-
-Les portfolios ainsi enregistrés sont disponibles sur la page dédiée, comme montré dans la Figure \ref{fig:saved}. Elle permettra à plus long terme à l'utilisateur de suivre l'évolution de la valeur de ces derniers, et éventuellement de les ré-optimiser plus tard.
-
 \begin{figure}[ht!]
 \begin{center}
 \includegraphics[width=1.0\textwidth]{images/SavedPortfolios.png}
@@ -596,6 +593,95 @@ Les portfolios ainsi enregistrés sont disponibles sur la page dédiée, comme m
 \label{fig:saved}
 \end{center}
 \end{figure}
+
+\subsubsection{Enregistrement des portefeuilles}
+\label{sec:developpement_pages_save}
+
+Les portfolios ainsi enregistrés sont disponibles sur la page dédiée, comme montré dans la Figure \ref{fig:saved}. Elle permettra à plus long terme à l'utilisateur de suivre l'évolution de la valeur de ces derniers, et éventuellement de les ré-optimiser plus tard.
+
+\subsection{Organisation du code}
+\label{sec:developpement_code}
+
+Depuis la racine du repository, le code se trouve de ce projet se trouve dans le dossier \verb|Django/projet|. Les fichiers peuvent être globalement découpés en deux catégories : les fichiers dédiés à l'implémentation des algorithmes, disponibles dans \verb|Django/projet/PGPortfolio|, et ceux servant au framework \verb|Django| (par défaut, le reste). Nous détaillons dans la suite la structure de ces deux ensembles. La structure générale du dossier \verb|Django/projet| est décrite dans la Figure \ref{fig:tree}.
+
+Bien que disponible en ligne, la plate-forme peut également être lancée en local. Il suffit de lancer la commande \texttt{python manage.py runserver} une fois avoir changé le dossier courant (il faut se placer au même niveau que \verb|manage.py|, donc dans \verb|Django/projet|), sous réserve d'avoir au préalable installé les packages python requis donnés dans \verb|Django/projet/requirements.txt|.
+
+\begin{figure}
+\begin{center}
+\begin{forest}
+  for tree={
+    font=\ttfamily,
+    grow'=0,
+    child anchor=west,
+    parent anchor=south,
+    anchor=west,
+    calign=first,
+    edge path={
+      \noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) +(7.5pt,0) |- node[fill,inner sep=1.25pt] {} (.child anchor)\forestoption{edge label};
+    },
+    before typesetting nodes={
+      if n=1
+        {insert before={[,phantom]}}
+        {}
+    },
+    fit=band,
+    before computing xy={l=15pt},
+  }
+[Django/projet
+    [optimizer
+    	[templates
+    		[optimizer]
+    		[registration]
+    	]
+    	[templatetags]
+    ]
+    [PGPortfolio
+        [pgportfolio
+    	    [learn]
+    	    [marketdata]
+    	    [tdagent]
+    	    [tools]
+        ]
+        [train\_package]
+    ]
+    [projet]
+    [resources]
+]
+\end{forest}
+\end{center}
+\caption{Arborescence des dossiers de code}
+\label{fig:tree}
+\end{figure}
+
+\subsubsection{Framework Django}
+\label{sec:developpement_code_django}
+
+A la racine, on trouve les fichiers nécessaires à la gestion de base de données : enregistrement/suppression de portfolios et piecharts dans les csv \verb|portfolios.csv| et \verb|charts.csv|, données utilisateurs dans \verb|db.sqlite3|. On y trouve également un détail des packages requis (\texttt{requirements.txt} et \texttt{conda-requirement.txt}), les fichiers nécessaires au déploiement automatique du serveur sur la plateforme Heroku (\texttt{Pipfile}, \texttt{Procfile}, \texttt{runtime.txt}) ainsi que le fichier Python nécessaire au bon fonctionnement d'un serveur Django : \texttt{manage.py}.
+
+Dans \verb|Django/projet/optimizer/templates| sont présentes les différentes pages HTML que l'on peut trouver sur le site. Le sous-dossier \verb|Django/projet/optimizer/templates/optimizer| contient les pages que voit un utilisateur connecté :
+
+\begin{itemize}
+    \item \verb|dashboard.html| (tableau de bord)
+    \item \verb|optimize.html| (interface d'optimisation)
+    \item \verb|portfolios.html| (ensemble des portfolios sauvés par l'utilisateur)
+    \item \verb|result.html| (résultat de l'optimisation)
+\end{itemize}
+    
+Dans \verb|Django/projet/optimizer/templates/registration|, on trouve l'ensemble des fichiers servant à implémenter le masque HTML des fonctionnalités d'inscription (notamment envoi automatique de mails), connexion et gestion des identifiants.
+
+A la racine de \verb|Django/projet/optimizer| et \verb|Django/projet/projet| on trouvera des fichiers \verb|urls.py| et \verb|views.py| qui ont pour rôle de faire la transition entre le serveur Django et les templates HTML. Dans \verb|Django/projet/projet/settings.py| sont définis l'ensemble des constantes nécessaires au bon fonctionnement d'un serveur Django. Pour que la plateforme envoie effectivement des mails avec votre serveur mail, il faudra en particulier changer la variable \verb|EMAIL_HOST_PASSWORD| de \verb|EMAIL_HOST_USER|.
+
+\subsubsection{Code des algorithmes}
+\label{sec:developpement_code_pgportofolio}
+
+Cette implémentation est concentrée dans le dossier \texttt{Django/projet/PGPortfolio}. A sa racine, le fichier central \texttt{main.py} fait appel aux autres composants du code de ce dossier pour prédire le portfolio et a vocation à être appelé dans \texttt{Django/projet/optimizer/views.py}.
+
+Dans \texttt{PGPortfolio/pgportfolio/learn}, on retrouve les fichiers servant à implémenter le réseau neuronal convolutif et ses comportements (\texttt{nnagent.py} et \texttt{network.py}). Le répertoire \texttt{PGPortfolio/pgportfolio/tdagent} contient quant à lui les fichiers d'implémentation des algorithmes de trading "classique". A sa racine, \texttt{tdagent.py} contient la classe générale de ces algorithmes, et les fichiers contenus dans \texttt{algorithms}, qui correspondent aux différents algorithmes, héritent de celle-ci.
+
+Dans \texttt{PGPortfolio/pgportfolio/marketdata}, le fichier \texttt{poloniex.py} regroupe les outils de communication avec l'API de Poloniex. \texttt{PGPortfolio/pgportfolio/tools} contient pour sa part des fichiers utilitaires améliorant la gestion des données notamment pour la lecture des paramètres des algorithmes (\texttt{configprocess.py}) et le traitement des données de l'API (\texttt{data.py}).
+
+Enfin, le dossier \texttt{PGPortfolio/train\_package} contient un certain nombre de sous-dossiers, où chacun contient les fichiers correspondants à un CNN entraîné (identifié par un chiffre). Ces fichiers suivent des formats propres à Tensorflow et stockent une représentation des poids du réseau neuronal. Le fichier \texttt{net\_config.json} stocke quant à lui les paramètres de ce réseau.
 
 \subsection{Choix techniques}
 \label{sec:developpement_choix}
