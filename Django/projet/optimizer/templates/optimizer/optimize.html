@@ -59,32 +59,10 @@
     <!-- /.container-fluid-->
     <div class="content-wrapper">
       <div class="container-fluid">
-        <!-- Breadcrumbs-->
-
-        <!--form>
-          Initial Investment (BTC): <input type="text"><br>
-          <h3>Risk</h3>
-          <select id="risk" size="3">
-            <option>Low</option>
-            <option>Medium</option>
-            <option>High</option>
-          </select>
-
-        <h3>Algorithm</h3>
-        <a class="btn btn-primary" href="#" id="Markowitz">Markowitz</a>
-        <a class="btn btn-primary" href="#" id="Neural Network">Neural Network</a>
-      </form-->
     <form action="/optimizer/pgportfolio.html" method="get">
       <label for="your_name">Name of portfolio: </label>
       <input id="name" type="text" name="name"><br>
       Initial Investment (BTC): <input id="capital" type="text" name="capital"><br>
-      <!--h3>Risk</h3>
-      <select id="risk" size="3">
-        <option>Low</option>
-        <option>Medium</option>
-        <option>High</option>
-      </select><br-->
-
       <h3>Algorithm</h3>
       <select id="algorithm" name="algorithm" size="3">
         {% for algo in algorithms %}
